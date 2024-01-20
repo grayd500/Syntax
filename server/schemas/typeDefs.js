@@ -26,9 +26,19 @@ const typeDefs = gql`
     title: String
   }
 
+  type Merch {
+    _id: ID
+    title: String
+    price: Float
+    imageUrl: String
+    category: String
+    size: String
+  }
+
   type Query {
     events: [Event]
     albums: [Album]
+    merch: [Merch]
   }
 `;
 
