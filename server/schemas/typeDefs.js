@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Event {
