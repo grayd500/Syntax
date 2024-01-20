@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "my-react-vite-app",
+  "name": "syntax",
   "version": "1.0.0",
   "scripts": {
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",

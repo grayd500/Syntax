@@ -16,7 +16,7 @@ export default function Navbar() {
           <a href="#discography" className="mr-5 hover:text-white">
             Skills
           </a>
-          <a href="#VIP" className="mr-5 hover:text-white">
+          <a href="#vip" className="mr-5 hover:text-white">
             Testimonials
           </a>
           {/* Adjusted resume link */}
@@ -28,7 +28,7 @@ export default function Navbar() {
           </a>
         </nav>
         <a
-          href="#vip"
+          href="#contact"
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
         >
           Hire Me
