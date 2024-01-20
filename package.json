@@ -1,5 +1,5 @@
 {
-  "name": "Syntax",
+  "name": "syntax",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "apollo-server": "^3.13.0"
+    "apollo-server": "^3.13.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
   }
 }
