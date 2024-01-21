@@ -6,7 +6,7 @@ import Discography from "../src/components/Discography/Discography.jsx";
 import Merch from "../src/components/Merch/Merch.jsx";
 import VIP from "../src/components/VIP/VIP.jsx";
 import Footer from "../src/components/Footer/Footer.jsx";
-
+import './index.css';
 
 export default function App() {
   return (
