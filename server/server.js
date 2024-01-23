@@ -1,9 +1,11 @@
+// server/server.js
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-const path = require('path');
 const https = require('https'); // Import the HTTPS module
-const fs = require('fs'); // Import the FS module to read SSL files
+const fs = require('fs'); 
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
