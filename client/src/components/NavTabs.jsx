@@ -27,18 +27,18 @@ export default function NavTabs() {
                         }
                         style={{ color: textColor }}
                     >
-                        About
+                        Bio
                     </Link>
                     <Link
-                        to="/discography"
+                        to="/music"
                         className={
-                            currentPage === "/discography"
+                            currentPage === "/music"
                                 ? "mr-5 hover:text-white active"
                                 : "mr-5 hover:text-white"
                         }
                         style={{ color: textColor }}
                     >
-                        Discography
+                        Music
                     </Link>
                     <Link
                         to="/merch"
@@ -52,15 +52,15 @@ export default function NavTabs() {
                         Merch
                     </Link>
                     <Link
-                        to="/vip"
+                        to="/tour"
                         className={
-                            currentPage === "/vip"
+                            currentPage === "/tour"
                                 ? "mr-5 hover:text-white active"
                                 : "mr-5 hover:text-white"
                         }
                         style={{ color: textColor }}
                     >
-                        VIP
+                        Tour
                     </Link>
                     <Link
                         to="/contact"
@@ -74,12 +74,12 @@ export default function NavTabs() {
                         Contact Us
                     </Link>
                 </nav>
-                <Link
+                {/* <Link
                     to="/tour"
                     className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
                 >
                     Follow us on Tour!
-                </Link>
+                </Link> */}
             </div>
         </header>
     );

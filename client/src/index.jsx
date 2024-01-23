@@ -6,10 +6,10 @@ import App from './App';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import About from './pages/About';
-import Discography from './pages/Discography';
+import About from './pages/Bio';
+import Music from './pages/Music';
 import Merch from './pages/Merch';
-import VIP from './pages/VIP';
+import Tour from './pages/Tour';
 
 const router = createBrowserRouter([
   {
@@ -30,16 +30,16 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: '/Discography',
-        element: <Discography />,
+        path: '/Music',
+        element: <Music />,
       },
       {
         path: '/Merch',
         element: <Merch />,
       },
       {
-        path: '/VIP',
-        element: <VIP />,
+        path: '/Tour',
+        element: <Tour />,
       },
     ],
   },
