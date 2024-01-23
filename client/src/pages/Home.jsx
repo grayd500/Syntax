@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
 
@@ -24,12 +24,12 @@ export default function Home() {
       />
 
       <ReactAudioPlayer
-      src="/night-city-knight.mp3"
-      autoPlay={isPlaying}
-      controls
-      style={{ width: '15%', marginTop: '20px' }}
+        src="/night-city-knight.mp3"
+        autoPlay={isPlaying}
+        controls
+        style={{ width: '15%', marginTop: '20px' }}
       />
-      
+
     </div>
   );
 }
