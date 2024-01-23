@@ -1,6 +1,7 @@
 # dependencies
 node_modules/
 /.pnp
+/certs
 .pnp.js
 package-lock
 
