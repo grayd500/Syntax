@@ -8,4 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss('./tailwind.config.js'),
   ],
-})
+  resolve: {
+    alias: {
+      '@mui/material': '@mui/material',
+      '@mui/icons-material': '@mui/icons-material',
+    },
+  },
+});
