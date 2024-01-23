@@ -6,7 +6,7 @@ import AlbumImage from "/Album_SelfTitled.png";
 
 export default function Music() {
   const containerStyle = {
-    width: "100%",
+    width: "65%",
     minHeight: "100vh",
     position: "relative",
   };
