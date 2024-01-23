@@ -1,3 +1,6 @@
+# Syntax
+
+
 ### Christi & Dale: Frontend Lead (React Specialist)
 **Responsibilities:**
 - Build React components for each section: Home, About, Discography, Shows, Merch.
