@@ -8,11 +8,11 @@ import { FaDiscord } from "react-icons/fa";
 
 export default function Footer() {
     const textColor = '#FFFFFF';
-    const iconColor = '#E53179ff'; 
+    const iconColor = '#E53179ff';
 
     return (
         <footer className="bg-black-800 md:sticky top-0 z-10">
-            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div className="md:w-full text-center">
                     <p className="text-base mt-4" style={{ color: textColor }}>
                         Let's Get Social:
@@ -22,19 +22,19 @@ export default function Footer() {
                     <nav className="md:mx-auto md:py-1 md:pl-4 md:border-gray-700 flex flex-wrap items-center text-base justify-center">
                         {/* GitHub Icon */}
                         <a href="https://github.com/grayd500/Syntax" target="_blank" rel="noopener noreferrer" className="mr-5 hover:text-white">
-                            <FaGithubSquare size={32} style={{ color: iconColor }}/>
+                            <FaGithubSquare size={32} style={{ color: iconColor }} />
                         </a>
                         {/* LinkedIn Icon */}
                         <a href="https://www.linkedin.com/pulse/topics/home/?trk=guest_homepage-basic_guest_nav_menu_articles" target="_blank" rel="noopener noreferrer" className="mr-5 hover:text-white">
-                            <FaLinkedin size={32} style={{ color: iconColor }}/>
+                            <FaLinkedin size={32} style={{ color: iconColor }} />
                         </a>
                         {/* Spotify Icon */}
                         <a href="https://open.spotify.com/playlist/37i9dQZF1EIcwQjfM8Wvly" target="_blank" rel="noopener noreferrer" className="mr-5 hover:text-white">
-                            <FaSpotify size={32} style={{ color: iconColor }}/>
+                            <FaSpotify size={32} style={{ color: iconColor }} />
                         </a>
                         {/* Discord Icon */}
                         <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" className="mr-5 hover:text-white">
-                            <FaDiscord size={32} style={{ color: iconColor }}/>
+                            <FaDiscord size={32} style={{ color: iconColor }} />
                         </a>
                     </nav>
                 </div>
