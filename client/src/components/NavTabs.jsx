@@ -13,8 +13,7 @@ export default function NavTabs() {
         <header className="bg-black-900 md:sticky top-0 z-10 fixed w-full">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div className="md:w-full text-center">
-                    <nav className="md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
-
+                <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
                         <Link
                             to="/"
                             className="mr-5 active"
