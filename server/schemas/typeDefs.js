@@ -35,10 +35,37 @@ const typeDefs = gql`
     size: String
   }
 
+  type User {
+    _id: ID
+    username: String!
+    password: String!
+    firstName: String
+    lastName: String
+    email: String
+  }
+  type AuthPayload {
+    token: String
+    user: User
+  }
+  input LoginInput {
+    username: String!
+    password: String!
+  }
+  input RegisterInput {
+    username: String!
+    password: String!
+    firstName: String
+    lastName: String
+    email: String
+  }
   type Query {
     events: [Event]
     albums: [Album]
     merch: [Merch]
+  }
+  type Mutation {
+    login(input: LoginInput): AuthPayload
+    register(input: RegisterInput): AuthPayload
   }
 `;
 
