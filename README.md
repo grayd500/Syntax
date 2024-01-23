@@ -1,6 +1,9 @@
+# Syntax
+
+
 ### Christi & Dale: Frontend Lead (React Specialist)
 **Responsibilities:**
-- Build React components for each section: Home, About, Discography, Shows, Merch.
+- Build React components for each section: Home, About, Music, Shows, Merch.
 - Implement the homepage layout with featured album and upcoming shows, as per the wireframe.
 - Create the Discography page with album listings and link them to external music platforms.
 - Ensure all pages have consistent navigation and are linked properly.

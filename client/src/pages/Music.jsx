@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Discography() {
+export default function Music() {
   const containerStyle = {
     width: "65%",
     position: "relative",
@@ -56,7 +56,7 @@ export default function Discography() {
       <div className="container px-5 py-10 mx-auto text-center lg:px-40" style={containerStyle}>
       </div>
       <p style={{ textAlign: "center", fontSize: "16px", width: "60%", margin: "-50px auto 20px", border: "1px solid #6366f1", padding: "10px", borderRadius: "5px" }}>
-        Discography
+        D
       </p>
     </section>
   );
