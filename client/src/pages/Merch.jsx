@@ -1,6 +1,5 @@
 import React from "react";
-import { Grid, Paper } from '@mui/material';
-import Card from '@mui/material/Card';
+import { Grid, Card } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 
 export default function Merch() {
