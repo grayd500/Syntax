@@ -1,3 +1,4 @@
+// server/schemas/typeDefs.js:
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
@@ -62,6 +63,7 @@ const typeDefs = gql`
     events: [Event]
     albums: [Album]
     merch: [Merch]
+    protectedData: String
   }
   type Mutation {
     login(input: LoginInput): AuthPayload

@@ -3,7 +3,7 @@ const Event = require('../models/event');
 const Album = require('../models/album');
 const Merch = require('../models/merch');
 const User = require('../models/user');
-const bcrypt = require('bcryptjs'); // Switch to bcryptjs
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const resolvers = {
@@ -17,7 +17,16 @@ const resolvers = {
     merch: async () => {
       return await Merch.find({});
     },
-    // Add any other queries as necessary
+    // Example of a protected query
+    protectedData: async (parent, args, context) => {
+      console.log("Context user:", context.user);
+      if (!context.user) {
+        throw new Error('Not authenticated');
+      }
+      // Here, you can implement logic to return data based on the authenticated user
+      return "This data is protected and you are authenticated to see it";
+    },
+    // Add other queries as necessary
   },
   Mutation: {
     login: async (parent, { input }) => {
