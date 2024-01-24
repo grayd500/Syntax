@@ -42,8 +42,8 @@ const StyledTable = styled(Table)({
   minWidth: 300,
 });
 
-function createData(title, date, city, venue, tickets) {
-  return { title, date, city, venue, tickets };
+function createData(description, date, location, venue, tickets) {
+  return { description, date, location, venue, tickets };
 }
 
 const rows = [
@@ -64,9 +64,9 @@ export default function Tour() {
       <StyledTable aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Description</StyledTableCell>
             <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">City</StyledTableCell>
+            <StyledTableCell align="right">Location</StyledTableCell>
             <StyledTableCell align="right">Venue</StyledTableCell>
             <StyledTableCell align="right">Tickets</StyledTableCell>
           </TableRow>
@@ -75,10 +75,10 @@ export default function Tour() {
           {rows.map((row) => (
             <StyledTableRow key={row.title}>
               <StyledTableCell component="th" scope="row">
-                {row.title}
+                {row.description}
               </StyledTableCell>
               <StyledTableCell align="right">{row.date}</StyledTableCell>
-              <StyledTableCell align="right">{row.city}</StyledTableCell>
+              <StyledTableCell align="right">{row.location}</StyledTableCell>
               <StyledTableCell align="right">{row.venue}</StyledTableCell>
               <StyledTableCell align="right">{row.tickets}</StyledTableCell>
             </StyledTableRow>

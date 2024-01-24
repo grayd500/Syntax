@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
-
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
 
