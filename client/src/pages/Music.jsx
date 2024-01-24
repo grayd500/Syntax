@@ -6,9 +6,10 @@ import AlbumImage from "/Album_SelfTitled.png";
 
 export default function Music() {
   const containerStyle = {
-    width: "65%",
-    minHeight: "100vh",
+    width: "50%",
+    minHeight: "75vh",
     position: "relative",
+    marginTop: "125px", // Add margin to the top to space out from the navbar
   };
 
   const albumCoverStyle = {
