@@ -36,6 +36,7 @@ const StyledTableContainer = styled(TableContainer)({
   maxWidth: "90%",
   overfloxX: "auto",
   marginBottom: "40px",
+  
 });
 
 const StyledTable = styled(Table)({
@@ -60,7 +61,7 @@ const rows = [
 
 export default function Tour() {
   return (
-    <StyledTableContainer component={Paper}>
+    <StyledTableContainer component={Paper} style={{ marginTop: '8rem', marginBottom: '11rem' }}>
       <StyledTable aria-label="customized table">
         <TableHead>
           <TableRow>

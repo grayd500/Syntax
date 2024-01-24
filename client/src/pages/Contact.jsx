@@ -32,8 +32,8 @@ export default function Contact() {
   // Band members data
   const bandMembers = [
     {
-      name: "Christi Tugwell",
-      instrument: "Keyboard",
+      name: "Synth Siren (Christi Tugwell)",
+      instrument: "Keyboard, Vocals",
       github: "https://github.com/tugwellchristi",
       linkedin: "https://www.linkedin.com/in/christi-tugwell-a67194104/",
     },
@@ -66,7 +66,7 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" className="relative">
+    <section id="contact" className="relative" style={{ marginTop: '7rem' }}>
       <div className="container px-5 py-10 mx-auto p-10 flex sm:flex-nowrap flex-wrap">
         <form
           name="contact"
@@ -89,7 +89,7 @@ export default function Contact() {
           <p className="leading-relaxed mb-5">
           </p>
           <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm text-gray-400">
+            <label htmlFor="name" className="leading-7 text-sm text-white">
               Name
             </label>
             <input
@@ -101,7 +101,7 @@ export default function Contact() {
             />
           </div>
           <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-400">
+            <label htmlFor="email" className="leading-7 text-sm text-white">
               Email
             </label>
             <input
@@ -115,13 +115,14 @@ export default function Contact() {
           <div className="relative mb-4">
             <label
               htmlFor="message"
-              className="leading-7 text-sm text-gray-400">
+              className="leading-7 text-sm text-white">
               Message
             </label>
             <textarea
               id="message"
               name="message"
               className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              style={{ textShadow: '2px 2px 5px rgba(169, 169, 169, 0.8)' }}
               onChange={(e) => setMessage(e.target.value)}
             />
           </div>
