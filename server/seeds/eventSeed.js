@@ -76,7 +76,7 @@ const eventSeedData = [
 async function seedEvents() {
   await Event.deleteMany({});
   await Event.insertMany(eventSeedData);
-  console.log('Events seeded!');
+  console.log('Events seeded!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
 }
 
 module.exports = seedEvents;

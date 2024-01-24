@@ -17,7 +17,7 @@ async function runSeeds() {
     await seedAlbums();
     await seedMerch();
     await seedUser();
-    console.log('All seeds completed successfully!');
+    console.log('All seeds completed successfully!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
   } catch (err) {
     console.error('Error during seeding:', err.message);
   } finally {
