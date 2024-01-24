@@ -10,7 +10,7 @@ import About from './pages/Bio';
 import Music from './pages/Music';
 import Merch from './pages/Merch';
 import Tour from './pages/Tour';
-import SiMusicbrainz from './components/NavTabs';
+import Members from './pages/Members';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       { 
         path: '/Members',
-        element: <SiMusicbrainz />
+        element: <Members />
       }
     ],
   },

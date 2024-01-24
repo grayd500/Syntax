@@ -1,6 +1,8 @@
 import { SiMusicbrainz } from "react-icons/si";
 import { Link, useLocation } from 'react-router-dom';
 
+const logoSrc = '/Syn.png';
+
 export default function NavTabs() {
     const currentPage = useLocation().pathname;
 
@@ -13,19 +15,22 @@ export default function NavTabs() {
             <div className="container mx-auto flex flex-wrap p-5 items-center justify-between">
                 <div className="md:w-full text-center">
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
-                        <Link
+                    {/* Logo/Home  */}
+                    <Link
                             to="/"
-                            className={`mr-5 ${currentPage === "/" ? "active" : ""}`}
-                            style={{ color: (currentPage === "/" ? hoverColor : textColor), fontSize: '18px', textDecoration: 'none' }}
+                            className="mr-5" 
+                            style={{ textDecoration: 'none' }}
                         >
-                            Home
+                            <img src={logoSrc} alt="Band logo" style={{ width: '170px', height: 'auto' }} />
                         </Link>
+                        {/* Menu Bar Items */}
+                       
                         <Link
                             to="/about"
                             className="mr-5"
                             style={{ color: (currentPage === "/about" ? hoverColor : textColor), fontSize: '18px', textDecoration: 'none' }}
                         >
-                            About
+                            Bio
                         </Link>
                         <Link
                             to="/music"
@@ -60,7 +65,7 @@ export default function NavTabs() {
                             to="/members"
                             className="mr-5 hover:text-white"
                             style={{
-                                color: (currentPage === "/member ? hoverColor : textColor"), fontSize: '18px', textDecoration: 'none'
+                                color: (currentPage === "/members ? hoverColor : textColor"), fontSize: '18px', textDecoration: 'none'
                             }}
                         >
                             <SiMusicbrainz size={32} style={{ color: iconColor }} />
