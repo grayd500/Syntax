@@ -1,4 +1,3 @@
-
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/NavTabs.jsx";
 import Logo from "./components/Logo.jsx";
