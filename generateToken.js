@@ -1,3 +1,4 @@
+// generateToken.js:
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 require('dotenv').config();

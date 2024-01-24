@@ -21,19 +21,6 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context: async ({ req }) => {
-  //   const token = req.headers.authorization || '';
-  //   console.log('token', token)
-  //   if (token) {
-  //     try {
-  //       const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
-  //       return { user: decoded };
-  //     } catch (e) {
-  //       console.error('JWT Verification Error:', e);
-  //       throw new Error('Authentication failed');
-  //     }
-  //   }
-  // },
 });
 
 // HTTPS setup for local development

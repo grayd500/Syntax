@@ -1,3 +1,4 @@
+// server/utils/auth.js:
 const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
 
