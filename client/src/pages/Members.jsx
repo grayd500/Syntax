@@ -21,7 +21,7 @@ const BandMemberLogin = () => {
     };
 
     return (
-        <div style={{ marginTop: '8rem', marginBottom: '28rem' }}>
+        <div style={{ marginTop: '8rem', marginBottom: '25rem' }}>
             <div style={{
                 maxWidth: '400px',
                 margin: 'auto',
@@ -55,6 +55,7 @@ const BandMemberLogin = () => {
                 <div>
                     <button onClick={handleLogin} style={{ margin: '10px', padding: '10px', backgroundColor: '#DA1279ff', color: '#ffffff', borderRadius: '5px' }}>Login</button>
                 </div>
+                <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>Sorry friends, this one's for us!</h2>
             </div>
         </div>
     );
