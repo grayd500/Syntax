@@ -22,9 +22,14 @@ export default function About() {
             <br className="hidden lg:inline-block" />
           </h1>
           <p className="mb-8 leading-relaxed" style={{ textIndent: '1em' }}>
-            About the band.</p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorem libero ex impedit delectus animi rerum hic magni, enim minus reprehenderit itaque dicta sit fugit aperiam veniam ipsum quisquam nostrum..</p>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img 
+          src="/Band_1.png"
+          alt="80s Retro band photo"
+          className="object-cover object-center rounded w-full max-h-96"
+          />
         </div>
       </div>
     </section>
