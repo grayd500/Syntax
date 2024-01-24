@@ -11,7 +11,7 @@ export default function Footer() {
     const iconColor = '#E53179ff';
 
     return (
-        <footer className="bg-black-800 md:sticky top-0 z-10">
+        <footer className="bg-black md:sticky top-0 z-10">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div className="md:w-full text-center">
                     <p className="text-base mt-4" style={{ color: textColor }}>

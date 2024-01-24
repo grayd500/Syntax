@@ -1,4 +1,4 @@
-
+import { SiMusicbrainz } from "react-icons/si";
 import { Link, useLocation } from 'react-router-dom';
 
 const logoSrc = '/Syn.png';
@@ -8,25 +8,29 @@ export default function NavTabs() {
 
     const textColor = '#E53179ff';
     const hoverColor = '#FFFFFF';
+    const iconColor = '#E53179ff';
 
     return (
-        <header className="bg-black-900 md:sticky top-0 z-10 fixed w-full">
-            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+        <header className="bg-black fixed w-full top-0 z-10">
+            <div className="container mx-auto flex flex-wrap p-5 items-center justify-between">
                 <div className="md:w-full text-center">
-                <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
-                        <Link
+                    <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
+                    {/* Logo/Home  */}
+                    <Link
                             to="/"
-                            className="mr-5 active"
-                            style={{ color: (currentPage === "/" ? hoverColor : textColor), fontSize: '18px', textDecoration: 'none' }}
+                            className="mr-5" 
+                            style={{ textDecoration: 'none' }}
                         >
-                            Home
+                            <img src={logoSrc} alt="Band logo" style={{ width: '170px', height: 'auto' }} />
                         </Link>
+                        {/* Menu Bar Items */}
+                       
                         <Link
                             to="/about"
                             className="mr-5"
                             style={{ color: (currentPage === "/about" ? hoverColor : textColor), fontSize: '18px', textDecoration: 'none' }}
                         >
-                            About
+                            Bio
                         </Link>
                         <Link
                             to="/music"
@@ -56,19 +60,17 @@ export default function NavTabs() {
                         >
                             Contact Us
                         </Link>
-                    </nav>
-                    <img
-                        src={logoSrc}
-                        alt="80s style pink Syntax Logo"
-                        className="mb-2"
-                        style={{
-                            width: '300px',
-                            height: 'auto',
-                            display: 'block',
-                            margin: '0 auto',
 
-                        }}
-                    />
+                        <Link
+                            to="/members"
+                            className="mr-5 hover:text-white"
+                            style={{
+                                color: (currentPage === "/members ? hoverColor : textColor"), fontSize: '18px', textDecoration: 'none'
+                            }}
+                        >
+                            <SiMusicbrainz size={32} style={{ color: iconColor }} />
+                        </Link>
+                    </nav>
                 </div>
             </div>
         </header>
