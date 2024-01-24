@@ -37,6 +37,27 @@ const merchSeedData = [
     imageUrl: '../images/Album_SystemError.png',
     category: 'Albums',
   },
+  {
+    title: 'Neon Mountains',
+    description: 'Third album',
+    price: 15.0,
+    imageUrl: '../images/Album_NeonMountains.png',
+    category: 'Albums',
+  },
+  {
+    title: 'Poster Journey 2024',
+    description: '36x24 Wall Poster',
+    price: 10.0,
+    imageUrl: '../images/Poster_Journey.png',
+    category: 'Posters',
+  },
+  {
+    title: 'Poster System Error 2023',
+    description: '36x24 Wall Poster',
+    price: 10.0,
+    imageUrl: '../images/Poster_Error.png',
+    category: 'Posters',
+  },
 ];
 
 async function seedMerch() {
