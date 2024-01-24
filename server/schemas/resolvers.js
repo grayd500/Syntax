@@ -20,9 +20,15 @@ const resolvers = {
     // Example of a protected query
     protectedData: async (parent, args, context) => {
       console.log("Context user:", context.user);
-      if (!context.user) {
+    
+      // Directly setting a user object for testing
+      const testUser = { userId: "testUserId" };
+      console.log("Direct test user set in resolver:", testUser);
+    
+      if (!testUser) {
         throw new Error('Not authenticated');
       }
+    
       // Here, you can implement logic to return data based on the authenticated user
       return "This data is protected and you are authenticated to see it";
     },
