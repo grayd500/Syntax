@@ -6,6 +6,9 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// import signToken method to create token
+const { signToken } = require('../utils/auth');
+
 const resolvers = {
   Query: {
     events: async () => {
@@ -19,23 +22,17 @@ const resolvers = {
     },
     // Example of a protected query
     protectedData: async (parent, args, context) => {
-      console.log("Context user:", context.user);
-    
-      // Directly setting a user object for testing
-      const testUser = { userId: "testUserId" };
-      console.log("Direct test user set in resolver:", testUser);
-    
-      if (!testUser) {
+      if (!context.user) {
         throw new Error('Not authenticated');
       }
-    
-      // Here, you can implement logic to return data based on the authenticated user
+      
       return "This data is protected and you are authenticated to see it";
     },
     // Add other queries as necessary
   },
   Mutation: {
     login: async (parent, { input }) => {
+      console.log('string- login resolver')
       const { username, password } = input;
       const user = await User.findOne({ username });
       if (!user) {
@@ -45,10 +42,9 @@ const resolvers = {
       if (!passwordMatch) {
         throw new Error('Invalid password');
       }
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: '1h',
-      });
-
+      console.log('login', user)
+     
+      const token =  signToken(user)
       return {
         token,
         user,
