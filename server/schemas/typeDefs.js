@@ -65,6 +65,11 @@ const typeDefs = gql`
   type Mutation {
     login(input: LoginInput): AuthPayload
     register(input: RegisterInput): AuthPayload
+    deleteComment(commentId: ID!): DeleteCommentResponse
+  }
+  type DeleteCommentResponse {
+    success: Boolean!
+    message: String
   }
 `;
 
