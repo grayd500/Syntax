@@ -9,6 +9,8 @@ export default function Music() {
     width: "65%",
     minHeight: "100vh",
     position: "relative",
+    marginTop: '8rem', 
+    marginBottom: '1rem'
   };
 
   const albumCoverStyle = {
@@ -36,6 +38,7 @@ export default function Music() {
     width: "100%",
     height: "auto",
     cursor: "pointer",
+    borderRadius: '10px',
   };
 
   const trackListStyle = {
@@ -65,7 +68,7 @@ export default function Music() {
   ];
 
   return (
-    <div id="music" className="text-gray-400 bg-gray-900 body-font">
+    <div id="music" className="text-gray-400 bg-black body-font">
       <div className="container px-5 py-10 mx-auto text-center lg:px-40" style={containerStyle}>
         <Slider dots={false} infinite speed={500} slidesToShow={1} slidesToScroll={1}>
           {albums.map((album) => (
