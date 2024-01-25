@@ -1,5 +1,4 @@
 // server/utils/auth.js:
-const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
 
 const secret = "secret";  // Ensure this is your actual secret key
@@ -50,6 +49,8 @@ const signToken = function ({ email, username, _id, isAdmin }) {
 
 // Exporting the middleware and signToken function for use in the application
 module.exports = {
-  authMiddleWare,
-  signToken,
+    authMiddleWare,
+    signToken,
+    adminAuthMiddleware, // Exporting adminAuthMiddleware
 };
+
