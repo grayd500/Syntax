@@ -44,7 +44,13 @@ const resolvers = {
       }
       console.log('login', user)
      
-      const token =  signToken(user)
+      // Refactored to include isAdmin in the token
+      const token = signToken({
+        email: user.email,
+        username: user.username,
+        _id: user._id,
+        isAdmin: user.isAdmin
+      });
       return {
         token,
         user,
@@ -63,11 +69,22 @@ const resolvers = {
         firstName,
         lastName,
         email,
+      // Best Practice for isAdmin flag:
+        // By default, all new users should not have admin privileges. This is crucial for maintaining
+        // the security and integrity of your application. The isAdmin flag should be set to false 
+        // when new users register. Admin privileges should only be granted through a secure internal process,
+        // typically performed by a site administrator or through a secure admin panel.
+        // This approach ensures that only authorized personnel have access to admin-level functionalities.
+        isAdmin: false, // Set to false by default for all new registrations
       });
       await newUser.save();
-
-      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
-        expiresIn: '1h',
+  
+      // Updated to use the signToken function
+      const token = signToken({
+        email: newUser.email,
+        username: newUser.username,
+        _id: newUser._id,
+        isAdmin: newUser.isAdmin // isAdmin is set in the User model
       });
       return {
         token,
@@ -75,7 +92,7 @@ const resolvers = {
       };
     },
     // Add other mutations as necessary
-  },
+  },  
 };
 
 module.exports = resolvers;
