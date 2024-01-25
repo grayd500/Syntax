@@ -132,7 +132,7 @@ export default function Contact() {
             Submit
           </button>
         </form>
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-5 flex items-center flex-col justify-center relative" style={{ border: '1px solid white', boxShadow: '0 0 10px rgba(229, 49, 121, 0.5)', borderRadius: '10px' }}>
+        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-5 flex items-center flex-col justify-center relative" style={{ border: '2px solid white', boxShadow: '0 0 10px rgba(229, 49, 121, 0.5)', borderRadius: '10px' }}>
           <h2 className="text-white text-4xl mb-4 font-medium" style={{ textShadow: '0 0 5px rgba(229, 49, 121, 1)' }}>
             The Band
           </h2>
