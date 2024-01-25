@@ -3,8 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AlbumImage from "/Album_SelfTitled.png";
-
+import AlbumImage2 from "/Album_NeonMountains.png";
+import AlbumImage3 from "/Album_SystemError.png";
+import "../music.css"
 export default function Music() {
+
   const containerStyle = {
     width: "65%",
     minHeight: "100vh",
@@ -57,15 +60,35 @@ export default function Music() {
     fontSize: "24px",
     cursor: "pointer",
   };
-
+  
   const albums = [
     {
-      title: "Album 1",
+      title: "Syntax",
       image: AlbumImage,
       releaseDate: "Release Date: MM/DD/YYYY",
-      trackList: ["Track 1", "Track 2", "Track 3"],
+      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
+    },
+    {
+      title: "Neon Mountains",
+      image: AlbumImage2,
+      releaseDate: "Release Date: MM/DD/YYYY",
+      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
+    },
+    {
+      title: "System Error",
+      image: AlbumImage3,
+      releaseDate: "Release Date: MM/DD/YYYY",
+      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
     },
   ];
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <div id="music" className="text-gray-400 bg-black body-font">
@@ -89,9 +112,6 @@ export default function Music() {
                   ))}
                 </ul>
               </div>
-              <img src={album.image} alt={album.title} style={coverImageStyle} />
-              <button className="slick-prev" style={{ ...sliderButtonStyle, left: 0 }} />
-              <button className="slick-next" style={{ ...sliderButtonStyle, right: 0 }} />
             </div>
           ))}
         </Slider>

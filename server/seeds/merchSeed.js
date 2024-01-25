@@ -63,7 +63,7 @@ const merchSeedData = [
 async function seedMerch() {
   await Merch.deleteMany({});
   await Merch.insertMany(merchSeedData);
-  console.log('Merch seeded!');
+  console.log('Merch seeded!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
 }
 
 module.exports = seedMerch;

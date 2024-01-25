@@ -1,4 +1,3 @@
-
 const User = require('../models/user');
 
 const userSeedData = [
@@ -8,6 +7,7 @@ const userSeedData = [
     firstName: 'John',
     lastName: 'Doe',
     email: 'user1@example.com',
+    isAdmin: false,
   },
   {
     username: 'user2',
@@ -15,6 +15,15 @@ const userSeedData = [
     firstName: 'Jane',
     lastName: 'Smith',
     email: 'user2@example.com',
+    isAdmin: false,
+  },
+  {
+    username: 'admin1',
+    password: 'adminpassword',
+    firstName: 'Admin',
+    lastName: 'User',
+    email: 'admin@example.com',
+    isAdmin: true,
   },
 ];
 
