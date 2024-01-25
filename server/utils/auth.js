@@ -2,39 +2,53 @@
 const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
 
-const secret = "secret";
+const secret = "secret";  // Ensure this is your actual secret key
 const expiration = "2h";
-// middleware to extract token from incoming request
+
+// Middleware to extract and verify token from incoming request
 const authMiddleWare = function ({ req }) {
-  console.log('call auth middleware')
-    // grab token from header
-  let token = req.headers.authorization;
-  // split token string
+  console.log('call auth middleware');
+  
+  // Initialize token variable
+  let token = "";
+  
+  // Check if authorization header is present and extract token
   if (req.headers.authorization) {
-    token = token.split(" ").pop().trim();
+    // Splitting the Bearer keyword from the token
+    token = req.headers.authorization.split('Bearer ')[1]?.trim();
   }
-  console.log('token', token)
-  // if no token, return the request-
+
+  // Log the extracted token for debugging purposes
+  console.log('Extracted token:', token);
+
+  // If no token, return the request object as it is
   if (!token) {
     return req;
   }
-  // if token found verify using the jwt package
+
+  // Verify the token using jwt.verify
   try {
     const { data } = jwt.verify(token, secret, { maxAge: expiration });
+    // Assign the decoded data to the request user
     req.user = data;
-  } catch {
-    console.log("Invalid token");
+  } catch (error) {
+    console.log("Invalid token", error.message);
+    // Optionally handle the invalid token case, e.g., by setting req.user to null
   }
-  // return the request with the decoded token on the request body as a user property
+
+  // Return the request with the (possibly modified) user property
   return req;
 };
-// function to sign a token (aka sign up, login)
-const signToken = function ({ email, username, _id }) {
-  // sign the token with the parameters and secret
-  const payload = { email, username, _id };
+
+// Function to sign a token (for signup, login)
+const signToken = function ({ email, username, _id, isAdmin }) {
+  // Constructing the payload with necessary user details
+  const payload = { email, username, _id, isAdmin };
+  // Sign the token with the payload, secret, and set an expiration
   return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 };
-// export function to use in our app
+
+// Exporting the middleware and signToken function for use in the application
 module.exports = {
   authMiddleWare,
   signToken,
