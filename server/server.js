@@ -1,4 +1,4 @@
-// server/server.js:
+// server/server.js
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
@@ -8,8 +8,9 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const https = require("https"); // Import the HTTPS module
 const fs = require("fs");
-// import authMiddle ware 
-const { authMiddleWare } = require('./utils/auth');
+
+// Import authMiddleWare and adminAuthMiddleware
+const { authMiddleWare, signToken, adminAuthMiddleware } = require('./utils/auth');;
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -40,10 +41,22 @@ const startApolloServer = async () => {
   app.use(
     "/graphql",
     expressMiddleware(server, {
-      path: "/", // confgirue graphql to use authmiddlware function
+      path: "/", // configure graphql to use authMiddleware function
       context: authMiddleWare,
     })
   );
+
+  // Example Admin-Only Route for deleting comments
+  // This route uses both authMiddleWare and adminAuthMiddleware
+  // Ensure that only authenticated admins can access this route
+  app.delete('/api/admin/delete-comment/:commentId', authMiddleWare, adminAuthMiddleware, (req, res) => {
+    // Add logic to handle comment deletion here
+    // Retrieve commentId from req.params
+    const { commentId } = req.params;
+    // Perform deletion logic, and then send a response
+    // This is just a placeholder response. Update it according to your deletion logic.
+    res.send(`Admin deleted comment with ID: ${commentId}`);
+  });
 
   // Serve static files in production
   if (process.env.NODE_ENV === "production") {
