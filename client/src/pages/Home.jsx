@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
 export default function Home() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
 
   const togglePlay = () => {
@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ textAlign: 'center', maxWidth: '1250px', margin: '8rem auto 5rem', display: 'flex' }}>
+    <div style={{ textAlign: 'center', maxWidth: '1250px', margin: '8rem auto 4rem', display: 'flex' }}>
       <div style={{ flex: 1, marginTop: '40px' }}>
         <img
           src="/Band_3.png"
@@ -24,16 +24,16 @@ export default function Home() {
         />
       </div>
 
-      <div style={{ flex: 1, marginLeft: '80px', textAlign: 'left', maxWidth: '600px', alignSelf: 'center' }}>
-        <p style={{ color: '#E53179ff', fontSize: '22px', marginBottom: '20px' }}>
-          Check out the latest single "Binary Commencement Bytes" from our album Neon Mountains, Volume 2!
+      <div style={{ flex: 1, marginLeft: '80px', textAlign: 'center', maxWidth: '600px', alignSelf: 'center' }}>
+        <p style={{ color: '#E53179ff', fontSize: '26px', marginBottom: '20px' }}>
+          Check out the latest single <br />"Binary Commencement Bytes" <br />from our album Neon Mountains, Volume 2!
         </p>
 
         <ReactAudioPlayer
           src="/night-city-knight.mp3"
           autoPlay={isPlaying}
           controls
-          style={{ width: '50%', marginTop: '20px', marginLeft: '100px' }}
+          style={{ width: '50%', marginTop: '20px', marginLeft: '150px' }}
         />
       </div>
     </div>

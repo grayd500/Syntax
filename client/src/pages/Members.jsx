@@ -21,7 +21,7 @@ const BandMemberLogin = () => {
     };
 
     return (
-        <div style={{ marginTop: '8rem', marginBottom: '25rem' }}>
+        <div style={{ marginTop: '8rem', marginBottom: '24rem' }}>
             <div style={{
                 maxWidth: '400px',
                 margin: 'auto',

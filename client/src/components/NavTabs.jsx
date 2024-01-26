@@ -12,7 +12,7 @@ export default function NavTabs() {
 
     return (
         <header className="bg-black fixed w-full top-0 z-10">
-            <div className="container mx-auto flex flex-wrap p-5 items-center justify-between">
+            <div className="container mx-auto flex flex-wrap items-center justify-between">
                 <div className="md:w-full text-center">
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
                     {/* Logo/Home  */}

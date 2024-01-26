@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../assets/images/SoundBoard.png";
+import backgroundImage from "../assets/SoundBoard.png";
 
 export default function Contact() {
   const [name, setName] = React.useState("");
@@ -66,7 +66,7 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" className="relative" style={{ marginTop: '7rem' }}>
+    <section id="contact" className="relative" style={{ marginTop: '4rem' }}>
       <div className="container px-5 py-10 mx-auto p-10 flex sm:flex-nowrap flex-wrap">
         <form
           name="contact"
@@ -80,6 +80,7 @@ export default function Contact() {
             backgroundColor: "rgba(0, 0, 0, 0.7)",
             padding: "13px",
             borderRadius: "10px",
+            marginBottom: "10px",
             marginRight: "20px", // Add margin to create space between the form and the map
           }}
         >
@@ -128,28 +129,28 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            className="text-white bg-indigo-700 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-400 rounded text-lg">
             Submit
           </button>
         </form>
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-5 flex items-center flex-col justify-center relative" style={{ border: '1px solid white', boxShadow: '0 0 10px rgba(229, 49, 121, 0.5)', borderRadius: '10px' }}>
-          <h2 className="text-white text-4xl mb-4 font-medium" style={{ textShadow: '0 0 5px rgba(229, 49, 121, 1)' }}>
-            The Band
-          </h2>
-          <br />
-          <ul className="text-white text-left text-center"> {/* Added text-center class */}
-            {bandMembers.map((member, index) => (
-              <li key={index} className="mb-4"> {/* Added margin-bottom for spacing */}
-                <strong className="text-indigo-500">{member.name}</strong>
-                <ul>
-                  <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
-                  <li><a href={member.github} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>GitHub</a></li>
-                  <li><a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>LinkedIn</a></li>
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-5 flex items-center justify-center flex-col relative" style={{ border: '2px solid white', boxShadow: '0 0 10px rgba(229, 49, 121, 0.5)', borderRadius: '10px' }}>
+  <h2 className="text-white text-4xl mb-4 font-medium" style={{ textShadow: '0 0 5px rgba(229, 49, 121, 1)' }}>
+    The Band
+  </h2>
+  <br />
+  <ul className="text-white text-left text-center"> {/* Added text-center class */}
+    {bandMembers.map((member, index) => (
+      <li key={index} className="mb-3"> {/* Added margin-bottom for spacing */}
+        <strong className="text-indigo-500">{member.name}</strong>
+        <ul>
+          <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
+          <li><a href={member.github} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>GitHub</a></li>
+          <li><a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>LinkedIn</a></li>
+        </ul>
+      </li>
+    ))}
+  </ul>
+</div>
 
       </div>
     </section>

@@ -1,23 +1,28 @@
-// server/server.js:
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-console.log("JWT_SECRET:", process.env.JWT_SECRET);
+
+// Debugging: Log all environment variables
+console.log("Environment Variables:", process.env);
+
+// Check if JWT_SECRET is defined
+if (!process.env.JWT_SECRET) {
+  console.error("JWT_SECRET is not defined in the .env file");
+  process.exit(1); // Exit the process
+}
+
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 // const https = require("https"); // Import the HTTPS module
 const fs = require("fs");
-// import authMiddle ware 
 const { authMiddleWare } = require('./utils/auth');
-
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// ApolloServer configuration
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -29,23 +34,20 @@ const server = new ApolloServer({
 //   cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
 // };
 
-// Starting Apollo Server function
 const startApolloServer = async () => {
   await server.start();
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
-  // Apollo Server middleware
   app.use(
     "/graphql",
     expressMiddleware(server, {
-      path: "/", // confgirue graphql to use authmiddlware function
+      path: "/",
       context: authMiddleWare,
     })
   );
 
-  // Serve static files in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/dist")));
 
@@ -54,7 +56,6 @@ const startApolloServer = async () => {
     });
   }
 
-  // Database connection and server start
   db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`HTTPS server running on port ${PORT}!`);
@@ -63,7 +64,6 @@ const startApolloServer = async () => {
   });
 };
 
-// Initialize the server
 startApolloServer();
 
 module.exports = { startApolloServer };
