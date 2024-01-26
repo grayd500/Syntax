@@ -25,7 +25,7 @@ const resolvers = {
       if (!context.user) {
         throw new Error('Not authenticated');
       }
-      
+
       return "This data is protected and you are authenticated to see it";
     },
     // Add other queries as necessary
@@ -43,8 +43,8 @@ const resolvers = {
         throw new Error('Invalid password');
       }
       console.log('login', user)
-     
-      const token =  signToken(user)
+
+      const token = signToken(user)
       return {
         token,
         user,

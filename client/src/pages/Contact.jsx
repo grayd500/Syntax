@@ -134,23 +134,23 @@ export default function Contact() {
           </button>
         </form>
         <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-5 flex items-center justify-center flex-col relative" style={{ border: '2px solid white', boxShadow: '0 0 10px rgba(229, 49, 121, 0.5)', borderRadius: '10px' }}>
-  <h2 className="text-white text-4xl mb-4 font-medium" style={{ textShadow: '0 0 5px rgba(229, 49, 121, 1)' }}>
-    The Band
-  </h2>
-  <br />
-  <ul className="text-white text-left text-center"> {/* Added text-center class */}
-    {bandMembers.map((member, index) => (
-      <li key={index} className="mb-3"> {/* Added margin-bottom for spacing */}
-        <strong className="text-indigo-500">{member.name}</strong>
-        <ul>
-          <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
-          <li><a href={member.github} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>GitHub</a></li>
-          <li><a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>LinkedIn</a></li>
-        </ul>
-      </li>
-    ))}
-  </ul>
-</div>
+          <h2 className="text-white text-4xl mb-4 font-medium" style={{ textShadow: '0 0 5px rgba(229, 49, 121, 1)' }}>
+            The Band
+          </h2>
+          <br />
+          <ul className="text-white text-left text-center"> {/* Added text-center class */}
+            {bandMembers.map((member, index) => (
+              <li key={index} className="mb-3"> {/* Added margin-bottom for spacing */}
+                <strong className="text-indigo-500">{member.name}</strong>
+                <ul>
+                  <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
+                  <li><a href={member.github} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>GitHub</a></li>
+                  <li><a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>LinkedIn</a></li>
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
 
       </div>
     </section>

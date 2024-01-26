@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 
 const GeneralContainer = styled('div')({
   marginTop: '6rem',
-  
+
 });
 const StyledTableContainer = styled(TableContainer)({
   margin: "auto",
@@ -48,7 +48,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(id, description, date, location, venue, tickets) {
-  return {id, description, date, location, venue, tickets };
+  return { id, description, date, location, venue, tickets };
 }
 
 const rows = [
@@ -57,7 +57,7 @@ const rows = [
   createData(3, 'Digital Dreamscape Festival3', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
   createData(4, 'Digital Dreamscape Festival4', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
   createData(5, 'Digital Dreamscape Festival5', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(6,'Digital Dreamscape Festival6', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
+  createData(6, 'Digital Dreamscape Festival6', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
   createData(7, 'Digital Dreamscape Festival7', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
   createData(8, 'Digital Dreamscape Festival8', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
   createData(9, 'Digital Dreamscape Festival9', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
@@ -66,38 +66,38 @@ const rows = [
 export default function Tour() {
   return (
     <GeneralContainer>
-    <StyledTableContainer component={Paper} >
-      <StyledTable aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Description</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">Location</StyledTableCell>
-            <StyledTableCell align="right">Venue</StyledTableCell>
-            <StyledTableCell align="right">Tickets</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.description}>
-              <StyledTableCell component="th" scope="row">
-                {row.description}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
-              <StyledTableCell align="right">{row.location}</StyledTableCell>
-              <StyledTableCell align="right">{row.venue}</StyledTableCell>
-              <StyledTableCell align="right">
-              <a href={row.tickets} target="_blank" rel="noopener noreferrer">
-              <Button variant="contained" style={{ backgroundColor: '#241742ff', color: 'white' }}>
-                    Get Tickets
-                  </Button>
+      <StyledTableContainer component={Paper} >
+        <StyledTable aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Description</StyledTableCell>
+              <StyledTableCell align="right">Date</StyledTableCell>
+              <StyledTableCell align="right">Location</StyledTableCell>
+              <StyledTableCell align="right">Venue</StyledTableCell>
+              <StyledTableCell align="right">Tickets</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <StyledTableRow key={row.description}>
+                <StyledTableCell component="th" scope="row">
+                  {row.description}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.date}</StyledTableCell>
+                <StyledTableCell align="right">{row.location}</StyledTableCell>
+                <StyledTableCell align="right">{row.venue}</StyledTableCell>
+                <StyledTableCell align="right">
+                  <a href={row.tickets} target="_blank" rel="noopener noreferrer">
+                    <Button variant="contained" style={{ backgroundColor: '#241742ff', color: 'white' }}>
+                      Get Tickets
+                    </Button>
                   </a>
                 </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </StyledTable>
-    </StyledTableContainer>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </StyledTable>
+      </StyledTableContainer>
     </GeneralContainer>
   );
 }

@@ -4,7 +4,7 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    
+
     <div className="bg-black">
       <Navbar />
       <main className="mx-3">
@@ -13,4 +13,4 @@ export default function App() {
       <Footer />
     </div>
   );
-  }
+}
