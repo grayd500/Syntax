@@ -1,7 +1,7 @@
 // server/utils/auth.js:
 const jwt = require("jsonwebtoken");
 
-const secret = "secret";  // Ensure this is your actual secret key
+const secret = "Syntax";  // Ensure this is your actual secret key
 const expiration = "2h";
 
 // Middleware to extract and verify token from incoming request
@@ -47,10 +47,27 @@ const signToken = function ({ email, username, _id, isAdmin }) {
   return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 };
 
+const adminAuthMiddleware = function(req, res, next) {
+  // First, ensure the user is authenticated
+  if (!req.user) {
+      return res.status(401).send('Not authenticated');
+  }
+
+  // Check if the user is an admin
+  if (req.user.isAdmin) {
+      // If the user is an admin, proceed to the next middleware/route handler
+      next();
+  } else {
+      // If not, return an unauthorized error
+      return res.status(403).send('Access denied. Admins only.');
+  }
+};
+
 // Exporting the middleware and signToken function for use in the application
 module.exports = {
-    authMiddleWare,
-    signToken,
-    adminAuthMiddleware, // Exporting adminAuthMiddleware
+  authMiddleWare,
+  signToken,
+  adminAuthMiddleware,
 };
+
 
