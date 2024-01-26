@@ -8,7 +8,7 @@ const expiration = "2h";
 // middleware to extract token from incoming request
 const authMiddleWare = function ({ req }) {
   console.log('call auth middleware')
-    // grab token from header
+  // grab token from header
   let token = req.headers.authorization;
   // split token string
   if (req.headers.authorization) {

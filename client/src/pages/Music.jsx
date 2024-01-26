@@ -37,7 +37,7 @@ export default function Music() {
   };
 
   return (
-    <div id="music" className="text-white body-font" style={{ marginTop: "100px"}}>
+    <div id="music" className="text-white body-font" style={{ marginTop: "100px" }}>
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <Slider {...settings} className="square-carousel">
           {albums.map((album, index) => (

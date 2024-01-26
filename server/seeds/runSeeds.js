@@ -17,7 +17,7 @@ db.once('open', async () => {
     await Merch.deleteMany({});
     await User.deleteMany({});
 
-    
+
     await Album.insertMany(seedAlbums);
     await Event.insertMany(seedEvents);
     await Merch.insertMany(seedMerch);

@@ -26,7 +26,7 @@ const BandMemberLogin = () => {
                 maxWidth: '400px',
                 margin: 'auto',
                 padding: '20px',
-               
+
                 textAlign: 'center',
             }}>
                 <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>Band Member Login</h2>

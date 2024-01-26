@@ -15,16 +15,16 @@ export default function NavTabs() {
             <div className="container mx-auto flex flex-wrap items-center justify-between">
                 <div className="md:w-full text-center">
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center justify-center text-base">
-                    {/* Logo/Home  */}
-                    <Link
+                        {/* Logo/Home  */}
+                        <Link
                             to="/"
-                            className="mr-5" 
+                            className="mr-5"
                             style={{ textDecoration: 'none' }}
                         >
                             <img src={logoSrc} alt="Band logo" style={{ width: '170px', height: 'auto' }} />
                         </Link>
                         {/* Menu Bar Items */}
-                       
+
                         <Link
                             to="/about"
                             className="mr-5"
