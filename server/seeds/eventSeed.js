@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     date: new Date('2024-06-12'),
     location: 'Austin, Texas',
