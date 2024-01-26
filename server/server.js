@@ -14,7 +14,7 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
-// const https = require("https"); // Import the HTTPS module
+const https = require("https"); // Import the HTTPS module
 const fs = require("fs");
 const { authMiddleWare } = require('./utils/auth');
 const { typeDefs, resolvers } = require("./schemas");
@@ -29,10 +29,10 @@ const server = new ApolloServer({
 });
 
 // HTTPS setup for local development
-// const httpsOptions = {
-//   key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
-//   cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
-// };
+const httpsOptions = {
+  key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
+  cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
+};
 
 const startApolloServer = async () => {
   await server.start();
