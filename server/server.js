@@ -4,10 +4,9 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 const jwt = require("jsonwebtoken");
 const express = require("express");
-const routes = require('./routes');
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
-const https = require("https"); // Import the HTTPS module
+// const https = require("https"); // Import the HTTPS module
 const fs = require("fs");
 // import authMiddle ware 
 const { authMiddleWare } = require('./utils/auth');
@@ -25,10 +24,10 @@ const server = new ApolloServer({
 });
 
 // HTTPS setup for local development
-const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
-  cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
-};
+// const httpsOptions = {
+//   key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
+//   cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
+// };
 
 // Starting Apollo Server function
 const startApolloServer = async () => {
@@ -46,9 +45,6 @@ const startApolloServer = async () => {
     })
   );
 
-  // Use the merch router for the /api/merch endpoint
-  app.use('/api', merchRouter);
-
   // Serve static files in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/dist")));
@@ -60,7 +56,7 @@ const startApolloServer = async () => {
 
   // Database connection and server start
   db.once("open", () => {
-    https.createServer(httpsOptions, app).listen(PORT, () => {
+    app.listen(PORT, () => {
       console.log(`HTTPS server running on port ${PORT}!`);
       console.log(`Use GraphQL at https://localhost:${PORT}/graphql`);
     });

@@ -2,22 +2,22 @@ const db = require('../config/connection');
 // Models
 const { Album, Event, Merch, User } = require('../models');
 // Seeds
-const seedUser = require('./userSeed');
 const seedAlbums = require('./albumSeed');
 const seedEvents = require('./eventSeed');
 const seedMerch = require('./merchSeed');
+const seedUser = require('./userSeed');
 
 db.once('open', async () => {
   try {
-    await User.deleteMany({});
     await Album.deleteMany({});
     await Event.deleteMany({});
     await Merch.deleteMany({});
+    await User.deleteMany({});
 
-    await User.create(seedUser);
     await Album.create(seedAlbums);
     await Event.create(seedEvents);
     await Merch.create(seedMerch);
+    await User.create(seedUser);
 
   } catch (err) {
     console.log(err);
