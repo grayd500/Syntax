@@ -2,8 +2,9 @@
 const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
 
-const secret = "secret";
+const secret = "Syntax";
 const expiration = "2h";
+
 // middleware to extract token from incoming request
 const authMiddleWare = function ({ req }) {
   console.log('call auth middleware')

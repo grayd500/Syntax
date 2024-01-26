@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../assets/images/SoundBoard.png";
+import backgroundImage from "../assets/SoundBoard.png";
 
 export default function Contact() {
   const [name, setName] = React.useState("");
@@ -66,7 +66,7 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" className="relative" style={{ marginTop: '7rem' }}>
+    <section id="contact" className="relative" style={{ marginTop: '4rem' }}>
       <div className="container px-5 py-10 mx-auto p-10 flex sm:flex-nowrap flex-wrap">
         <form
           name="contact"
@@ -140,7 +140,7 @@ export default function Contact() {
   <br />
   <ul className="text-white text-left text-center"> {/* Added text-center class */}
     {bandMembers.map((member, index) => (
-      <li key={index} className="mb-4"> {/* Added margin-bottom for spacing */}
+      <li key={index} className="mb-3"> {/* Added margin-bottom for spacing */}
         <strong className="text-indigo-500">{member.name}</strong>
         <ul>
           <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>

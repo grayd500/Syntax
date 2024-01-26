@@ -9,7 +9,7 @@ export default function About() {
 
   return (
     <div>
-      <section id="about" style={{ marginTop: '8rem', marginBottom: '8rem' }}>
+      <section id="about" style={{ marginTop: '8rem', marginBottom: '7rem' }}>
         <div className="container mx-auto px-10 py-20 flex flex-col md:flex-row items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start mb-16 md:mb-0">
             <h1
