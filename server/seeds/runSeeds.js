@@ -14,10 +14,11 @@ db.once('open', async () => {
     await Merch.deleteMany({});
     await User.deleteMany({});
 
-    await Album.create(seedAlbums);
-    await Event.create(seedEvents);
-    await Merch.create(seedMerch);
-    await User.create(seedUser);
+    
+    await Album.insertMany(seedAlbums);
+    await Event.insertMany(seedEvents);
+    await Merch.insertMany(seedMerch);
+    await User.insertMany(seedUser);
 
   } catch (err) {
     console.log(err);

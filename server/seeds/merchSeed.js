@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     title: 'Band Logo Shirt',
     description: 'A comfortable and stylish T-shirt for coding enthusiasts.',

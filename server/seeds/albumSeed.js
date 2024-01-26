@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     title: 'Syntax',
     releaseDate: new Date('2020-07-31'),

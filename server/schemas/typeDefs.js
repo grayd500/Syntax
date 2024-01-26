@@ -5,15 +5,15 @@ const typeDefs = gql`
   scalar Date
   type Event {
     _id: ID
-    date: Date
-    location: String
-    venue: String
+    date: Date!
+    location: String!
+    venue: String!
     description: String
     ticket: String
   }
   type Album {
     _id: ID
-    title: String
+    title: String!
     releaseDate: Date
     tracklist: [Track]
   }
