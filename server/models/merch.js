@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const merchSchema = new mongoose.Schema({
+const merchSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -27,4 +27,6 @@ const merchSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Merch', merchSchema);
+const Merch = model('Merch', merchSchema)
+
+module.exports = Merch;

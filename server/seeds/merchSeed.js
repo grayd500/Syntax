@@ -1,6 +1,4 @@
-const Merch = require('../models/merch');
-
-const merchSeedData = [
+[
   {
     title: 'Band Logo Shirt',
     description: 'A comfortable and stylish T-shirt for coding enthusiasts.',
@@ -60,10 +58,5 @@ const merchSeedData = [
   },
 ];
 
-async function seedMerch() {
-  await Merch.deleteMany({});
-  await Merch.insertMany(merchSeedData);
-  console.log('Merch seeded!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
-}
 
-module.exports = seedMerch;
+

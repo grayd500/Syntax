@@ -1,27 +1,30 @@
-const mongoose = require('mongoose');
-const seedEvents = require('./eventSeed');
-const seedAlbums = require('./albumSeed');
-const seedMerch = require('./merchSeed');
+const db = require('../config/connection');
+// Models
+const { Album, Event, Merch, User } = require('../models');
+// Seeds
 const seedUser = require('./userSeed');
+const seedAlbums = require('./albumSeed');
+const seedEvents = require('./eventSeed');
+const seedMerch = require('./merchSeed');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/syntaxDB';
+db.once('open', async () => {
+  try {
+    await User.deleteMany({});
+    await Album.deleteMany({});
+    await Event.deleteMany({});
+    await Merch.deleteMany({});
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+    await User.create(seedUser);
+    await Album.create(seedAlbums);
+    await Event.create(seedEvents);
+    await Merch.create(seedMerch);
+
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  console.log('all done!');
+  process.exit(0);
 });
 
-async function runSeeds() {
-  try {
-    await seedEvents();
-    await seedAlbums();
-    await seedMerch();
-    await seedUser();
-    console.log('All seeds completed successfully!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
-  } catch (err) {
-    console.error('Error during seeding:', err.message);
-  } finally {
-    mongoose.disconnect();
-  }
-}
-runSeeds();

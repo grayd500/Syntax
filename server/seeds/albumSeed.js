@@ -1,6 +1,4 @@
-const Album = require('../models/album');
-
-const albumSeedData = [
+[
   {
     title: 'Syntax',
     releaseDate: new Date('2020-07-31'),
@@ -44,11 +42,3 @@ const albumSeedData = [
     ],
   },
 ];
-
-async function seedAlbums() {
-  await Album.deleteMany({});
-  await Album.insertMany(albumSeedData);
-  console.log('Albums seeded!'); //<<<<<<<<<<<<<<<<<<<< DELETE!!!!!!!!!!!!!!!!!!!
-}
-
-module.exports = seedAlbums;

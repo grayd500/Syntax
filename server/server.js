@@ -4,6 +4,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 const jwt = require("jsonwebtoken");
 const express = require("express");
+const routes = require('./routes');
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const https = require("https"); // Import the HTTPS module
@@ -44,6 +45,9 @@ const startApolloServer = async () => {
       context: authMiddleWare,
     })
   );
+
+  // Use the merch router for the /api/merch endpoint
+  app.use('/api', merchRouter);
 
   // Serve static files in production
   if (process.env.NODE_ENV === "production") {
