@@ -10,8 +10,8 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
 const GeneralContainer = styled('div')({
-  marginTop: '8rem',
-  marginBottom: '1rem',
+  marginTop: '6rem',
+  
 });
 const StyledTableContainer = styled(TableContainer)({
   margin: "auto",

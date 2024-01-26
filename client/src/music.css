@@ -1,6 +1,6 @@
 .square-carousel {
     width: 50%;
-    padding-bottom: 50%;
+    /* padding-bottom: 50%; */
     position: relative;
     margin: 0 auto;
     min-height: 300px;
@@ -79,10 +79,10 @@
   
   .slick-prev {
     left: -50px; /* Adjust this value to position the button to the left of the image */
-    top: 25%;
+    top: 50%;
   }
   
   .slick-next {
     right: -50px; /* Adjust this value to position the button to the right of the image */
-    top: 25%;
+    top: 50%;
   }

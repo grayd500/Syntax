@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+    background-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Styles for tablets and smaller screens */
+}
+
+@media only screen and (max-width: 480px) {
+    /* Styles for mobile screens */
+}
+
 /* CSS HEX 
 Band Photo
 --mexican-pink: #DA1279ff;

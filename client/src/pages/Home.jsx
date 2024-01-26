@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ textAlign: 'center', maxWidth: '1250px', margin: '8rem auto 5rem', display: 'flex' }}>
+    <div style={{ textAlign: 'center', maxWidth: '1250px', margin: '8rem auto 4rem', display: 'flex' }}>
       <div style={{ flex: 1, marginTop: '40px' }}>
         <img
           src="/Band_3.png"
