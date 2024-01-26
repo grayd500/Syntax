@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/syntaxDB'
-);
+const connectionString = process.env.MONGODB_URI;
+
+if (!connectionString) {
+  console.error('MONGODB_URI not specified in environment');
+  process.exit(1);
+}
+
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
 module.exports = mongoose.connection;
+

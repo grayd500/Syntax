@@ -1,4 +1,7 @@
+// server/seeds/runSeeds.js:
+require('dotenv').config();
 const db = require('../config/connection');
+
 // Models
 const { Album, Event, Merch, User } = require('../models');
 // Seeds
