@@ -1,6 +1,4 @@
-const User = require('../models/user');
-
-const userSeedData = [
+[
   {
     username: 'user1',
     password: 'password1',
@@ -26,11 +24,3 @@ const userSeedData = [
     isAdmin: true,
   },
 ];
-
-async function seedUser() {
-  await User.deleteMany({});
-  await User.insertMany(userSeedData);
-  console.log('Users seeded!');
-}
-
-module.exports = seedUser;
