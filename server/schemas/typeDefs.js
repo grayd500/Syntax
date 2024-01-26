@@ -60,6 +60,7 @@ const typeDefs = gql`
     events: [Event]
     albums: [Album]
     merch: [Merch]
+    user: [User]
     protectedData: String
   }
   type Mutation {
