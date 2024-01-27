@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BandMemberLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -15,6 +17,10 @@ const BandMemberLogin = () => {
     const handleLogin = () => {
         console.log('Username:', username);
         console.log('Password:', password);
+        navigate('/membersHome');
+        // if (username == 'yourUsername' && password == 'yourPassword'){
+        //     navigate('/membersHome');
+        // }
 
         // Add your login logic here
         // For example, you might want to send the credentials to a server for authentication

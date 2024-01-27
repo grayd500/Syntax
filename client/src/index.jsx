@@ -11,6 +11,7 @@ import Music from './pages/Music';
 import Merch from './pages/Merch';
 import Tour from './pages/Tour';
 import Members from './pages/Members';
+import MembersHome from './pages/MembersHome';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/Members',
         element: <Members />
+      },
+      {
+        path: '/membersHome',
+        element: <MembersHome />
       }
     ],
   },
