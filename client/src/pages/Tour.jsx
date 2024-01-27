@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery, gql } from '@apollo/client';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,10 +10,23 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
+const GET_EVENTS = gql`
+  query GetEvents {
+    events {
+      _id
+      description
+      date
+      location
+      venue
+      ticket
+    }
+  }
+`;
+
 const GeneralContainer = styled('div')({
   marginTop: '6rem',
-
 });
+
 const StyledTableContainer = styled(TableContainer)({
   margin: "auto",
   maxWidth: "70%",
@@ -47,26 +61,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(id, description, date, location, venue, tickets) {
-  return { id, description, date, location, venue, tickets };
-}
-
-const rows = [
-  createData(1, 'Digital Dreamscape Festival1', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(2, 'Digital Dreamscape Festival2', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(3, 'Digital Dreamscape Festival3', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(4, 'Digital Dreamscape Festival4', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(5, 'Digital Dreamscape Festival5', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(6, 'Digital Dreamscape Festival6', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(7, 'Digital Dreamscape Festival7', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(8, 'Digital Dreamscape Festival8', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-  createData(9, 'Digital Dreamscape Festival9', 'June 12, 2024', 'Austin, Texas', 'Zilker Park', 'https://frontgatetickets.com'),
-];
-
 export default function Tour() {
+  const { loading, error, data } = useQuery(GET_EVENTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <GeneralContainer>
-      <StyledTableContainer component={Paper} >
+      <StyledTableContainer component={Paper}>
         <StyledTable aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -78,16 +81,16 @@ export default function Tour() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.description}>
+            {data.events.map((event) => (
+              <StyledTableRow key={event._id}>
                 <StyledTableCell component="th" scope="row">
-                  {row.description}
+                  {event.description}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.date}</StyledTableCell>
-                <StyledTableCell align="right">{row.location}</StyledTableCell>
-                <StyledTableCell align="right">{row.venue}</StyledTableCell>
+                <StyledTableCell align="right">{event.date}</StyledTableCell>
+                <StyledTableCell align="right">{event.location}</StyledTableCell>
+                <StyledTableCell align="right">{event.venue}</StyledTableCell>
                 <StyledTableCell align="right">
-                  <a href={row.tickets} target="_blank" rel="noopener noreferrer">
+                  <a href={event.ticket} target="_blank" rel="noopener noreferrer">
                     <Button variant="contained" style={{ backgroundColor: '#241742ff', color: 'white' }}>
                       Get Tickets
                     </Button>
