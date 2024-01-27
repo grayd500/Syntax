@@ -44,23 +44,23 @@ export default function Contact() {
       linkedin: "https://www.linkedin.com/in/grayd500/",
     },
     {
-      name: "Cimarron Jenschke",
-      instrument: "Guitar",
-      github: "https://github.com/cjenschke",
-      linkedin: "https://www.linkedin.com/in/cimarron-jenschke-a59ab5290/",
-    },
-    {
-      name: "Derek Modugno",
-      instrument: "Bass",
-      github: "https://github.com/derekm129",
-      linkedin: "",
-    },
-    {
       name: "BeatMagnet (Dale Haynie)",
       instrument: "Percussion",
       github: "https://github.com/Daleray1231",
       linkedin: "https://www.linkedin.com/in/dale-haynie-3b66142a7/",
     },
+    {
+      name: "Cimarron Jenschke",
+      instrument: "Syntax General Manager, Coded Productions",
+      github: "https://github.com/cjenschke",
+      linkedin: "https://www.linkedin.com/in/cimarron-jenschke-a59ab5290/",
+    },
+    {
+      name: "Derek Modugno",
+      instrument: "Press and Booking Manager, API Agency",
+      github: "https://github.com/derekm129",
+      linkedin: "",
+    }
     // Add more members as needed
   ];
 
@@ -138,9 +138,21 @@ export default function Contact() {
             The Band
           </h2>
           <br />
-          <ul className="text-white text-left text-center"> {/* Added text-center class */}
-            {bandMembers.map((member, index) => (
-              <li key={index} className="mb-3"> {/* Added margin-bottom for spacing */}
+          <ul className="text-white text-left flex flex-wrap justify-center"> {/* Added text-center class */}
+            {bandMembers.slice(0, 3).map((member, index) => (
+               <li key={index} className={`mb-3 mx-3 ${index < 2 ? 'mr-3' : ''}`}>
+                <strong className="text-indigo-500">{member.name}</strong>
+                <ul>
+                  <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
+                  <li><a href={member.github} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>GitHub</a></li>
+                  <li><a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ textShadow: '0 0 5px rgba(0, 0, 255, 1)' }}>LinkedIn</a></li>
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <ul className="text-white text-left flex flex-wrap justify-center" style={{ marginTop: '70px'}}>
+            {bandMembers.slice(3).map((member, index) => (
+              <li key={index} className="mb-3 mx-3">
                 <strong className="text-indigo-500">{member.name}</strong>
                 <ul>
                   <li><span style={{ color: 'rgb(229, 49, 121)' }}>{member.instrument}</span></li>
