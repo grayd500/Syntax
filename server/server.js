@@ -28,12 +28,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// HTTPS setup for local development
-const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
-  cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
-};
-
 const startApolloServer = async () => {
   await server.start();
 
@@ -54,14 +48,29 @@ const startApolloServer = async () => {
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
-  }
 
-  db.once("open", () => {
-    app.listen(PORT, () => {
-      console.log(`HTTPS server running on port ${PORT}!`);
-      console.log(`Use GraphQL at https://localhost:${PORT}/graphql`);
+    // Start HTTP Server for Production
+    db.once("open", () => {
+      app.listen(PORT, () => {
+        console.log(`HTTP server running on port ${PORT}!`);
+        console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+      });
     });
-  });
+  } else {
+    // HTTPS setup for local development
+    const httpsOptions = {
+      key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
+      cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
+    };
+
+    // Start HTTPS Server for Development
+    db.once("open", () => {
+      https.createServer(httpsOptions, app).listen(PORT, () => {
+        console.log(`HTTPS server running on port ${PORT}!`);
+        console.log(`Use GraphQL at https://localhost:${PORT}/graphql`);
+      });
+    });
+  }
 };
 
 startApolloServer();
