@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.10",
     "@apollo/server": "^4.7.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.15.6",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-audio-visualize": "^1.1.3",

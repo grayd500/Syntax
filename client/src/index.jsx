@@ -1,5 +1,7 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './index.css';
 
 import App from './App';
@@ -12,6 +14,12 @@ import Merch from './pages/Merch';
 import Tour from './pages/Tour';
 import Members from './pages/Members';
 import MembersHome from './pages/MembersHome';
+
+// Set up the Apollo client instance with your server's GraphQL endpoint
+const client = new ApolloClient({
+  uri: 'https://syntax-8rz6.onrender.com/graphql',
+  cache: new InMemoryCache(),
+});
 
 const router = createBrowserRouter([
   {
@@ -49,16 +57,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/Members',
-        element: <Members />
+        element: <Members />,
       },
       {
         path: '/membersHome',
-        element: <MembersHome />
+        element: <MembersHome />,
       }
+      // Add more routes here if needed
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
+  </React.StrictMode>
 );
