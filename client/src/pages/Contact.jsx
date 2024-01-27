@@ -66,7 +66,7 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" className="relative" style={{ marginTop: '4rem' }}>
+    <section id="contact" className="relative" style={{ marginTop: '8rem', marginBottom: '8rem' }}>
       <div className="container px-5 py-10 mx-auto p-10 flex sm:flex-nowrap flex-wrap">
         <form
           name="contact"
