@@ -20,19 +20,22 @@ const resolvers = {
     merch: async () => {
       return await Merch.find({});
     },
+    user: async () => {
+      return await User.find({});
+    },
     // Example of a protected query
     protectedData: async (parent, args, context) => {
       if (!context.user) {
         throw new Error('Not authenticated');
       }
 
-      return "This data is protected and you are authenticated to see it";
+      return 'This data is protected and you are authenticated to see it';
     },
     // Add other queries as necessary
   },
   Mutation: {
     login: async (parent, { input }) => {
-      console.log('string- login resolver')
+      console.log('string- login resolver');
       const { username, password } = input;
       const user = await User.findOne({ username });
       if (!user) {
@@ -42,9 +45,9 @@ const resolvers = {
       if (!passwordMatch) {
         throw new Error('Invalid password');
       }
-      console.log('login', user)
+      console.log('login', user);
 
-      const token = signToken(user)
+      const token = signToken(user);
       return {
         token,
         user,
