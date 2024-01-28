@@ -35,7 +35,7 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { input }) => {
-      console.log('string- login resolver');
+      console.log('Login resolver:', input);
       const { username, password } = input;
       const user = await User.findOne({ username });
       if (!user) {
@@ -44,7 +44,9 @@ const resolvers = {
       console.log('Found user:', user);
     
       const passwordMatch = await bcrypt.compare(password, user.password);
-      console.log('Password match:', passwordMatch);
+      console.log('Password from client:', password);
+      console.log('Hashed password from DB:', user.password);
+      console.log('Password match result:', passwordMatch);
       if (!passwordMatch) {
         throw new Error('Invalid password');
       }
