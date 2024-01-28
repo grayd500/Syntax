@@ -1,32 +1,27 @@
 import React from "react";
+import { useQuery, gql } from "@apollo/client";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AlbumImage from "/Album_SelfTitled.png";
-import AlbumImage2 from "/Album_NeonMountains.png";
-import AlbumImage3 from "/Album_SystemError.png";
-import "../music.css"
+import "../music.css";
+
+// GraphQL query to fetch albums
+const GET_ALBUMS = gql`
+  query GetAlbums {
+    albums {
+      _id
+      title
+      releaseDate
+      tracklist {
+        trackNumber
+        title
+      }
+    }
+  }
+`;
+
 export default function Music() {
-  const albums = [
-    {
-      title: "Syntax",
-      image: AlbumImage,
-      releaseDate: "Release Date: MM/DD/YYYY",
-      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
-    },
-    {
-      title: "Neon Mountains",
-      image: AlbumImage2,
-      releaseDate: "Release Date: MM/DD/YYYY",
-      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
-    },
-    {
-      title: "System Error",
-      image: AlbumImage3,
-      releaseDate: "Release Date: MM/DD/YYYY",
-      trackList: ["Track 1", "Track 2", "Track 3", "Track 4", "Track 5"],
-    },
-  ];
+  const { loading, error, data } = useQuery(GET_ALBUMS);
 
   const settings = {
     dots: false,
@@ -36,20 +31,24 @@ export default function Music() {
     slidesToScroll: 1,
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <div id="music" className="text-white body-font" style={{ marginTop: "100px" }}>
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <Slider {...settings} className="square-carousel">
-          {albums.map((album, index) => (
-            <div key={index} className="square-slide">
-              <img src={album.image} alt={album.title} className="square-image" />
+          {data.albums.map((album) => (
+            <div key={album._id} className="square-slide">
+              {/* Update the image source to point to the public folder */}
+              <img src={`/Album_${album.title.replace(/\s+/g, '')}.png`} alt={album.title} className="square-image" />
               <div className="overlay">
                 <div className="album-details">
                   <h3>{album.title}</h3>
-                  <p>{album.releaseDate}</p>
+                  <p>Release Date: {new Date(album.releaseDate).toLocaleDateString()}</p>
                   <ul>
-                    {album.trackList.map((track, i) => (
-                      <li key={i}>{track}</li>
+                    {album.tracklist.map((track, i) => (
+                      <li key={i}>{track.title}</li>
                     ))}
                   </ul>
                 </div>
