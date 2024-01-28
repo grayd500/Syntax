@@ -64,7 +64,6 @@ const resolvers = {
       if (existingUser) {
         throw new Error('Username is already taken');
       }
-      const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = new User({
         username,
         password: hashedPassword,
