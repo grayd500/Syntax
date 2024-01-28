@@ -24,11 +24,12 @@ const typeDefs = gql`
   }
 
   type Merch {
-    _id: ID
-    title: String
-    price: Float
-    imageUrl: String
-    category: String
+    _id: ID!
+    title: String!
+    description: String!
+    price: Float!
+    imageUrl: String!
+    category: String!
     size: String
   }
 
