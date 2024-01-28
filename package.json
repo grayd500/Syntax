@@ -9,7 +9,6 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "node server/seeds/runSeeds.js",
     "build": "npm install && cd server && npm i && cd ../client && npm install --include=dev && npm run build"
-
   },
   "keywords": [],
   "author": "",
@@ -18,10 +17,12 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.10",
     "@mui/material": "^5.15.6",
     "apollo-server": "^3.13.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.1",
+    "graphql": "^16.8.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.3.0",
     "postcss": "^8.4.33",
