@@ -66,7 +66,7 @@ const resolvers = {
       }
       const newUser = new User({
         username,
-        password: hashedPassword,
+        password,
         firstName,
         lastName,
         email,
