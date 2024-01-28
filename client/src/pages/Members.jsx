@@ -31,13 +31,16 @@ const BandMemberLogin = () => {
 
   const handleLogin = async () => {
     try {
+      console.log('Attempting login with:', { username, password }); // Log the credentials being used
       const { data } = await login({ variables: { username, password } });
+      console.log('Login response:', data); // Log the response from the server
+  
       if (data.login.token) {
         console.log('Login successful!');
         navigate('/membersHome');
       }
     } catch (e) {
-      // Error handling is done via the useMutation hook
+      console.error('Login error:', e.message); // Log any error that occurs during login
     }
   };
 

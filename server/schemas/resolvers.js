@@ -41,18 +41,21 @@ const resolvers = {
       if (!user) {
         throw new Error('User not found');
       }
+      console.log('Found user:', user);
+    
       const passwordMatch = await bcrypt.compare(password, user.password);
+      console.log('Password match:', passwordMatch);
       if (!passwordMatch) {
         throw new Error('Invalid password');
       }
-      console.log('login', user);
-
+    
       const token = signToken(user);
       return {
         token,
         user,
       };
     },
+    
     register: async (parent, { input }) => {
       const { username, password, firstName, lastName, email } = input;
       const existingUser = await User.findOne({ username });
