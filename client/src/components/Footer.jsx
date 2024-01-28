@@ -3,8 +3,9 @@ import { FaGithubSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSpotify } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa";
-
-
+import { FaSoundcloud } from "react-icons/fa";
+import { SiApplemusic } from "react-icons/si";
+import { FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
     const textColor = '#FFFFFF';
@@ -34,6 +35,13 @@ export default function Footer() {
                             className="mr-5 hover:text-white">
                             <FaLinkedin size={32} style={{ color: iconColor }} />
                         </a>
+                         {/* Discord Icon */}
+                         <a href="https://discord.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mr-5 hover:text-white">
+                            <FaDiscord size={32} style={{ color: iconColor }} />
+                        </a>
                         {/* Spotify Icon */}
                         <a href="https://open.spotify.com/playlist/37i9dQZF1EIcwQjfM8Wvly"
                             target="_blank"
@@ -41,12 +49,26 @@ export default function Footer() {
                             className="mr-5 hover:text-white">
                             <FaSpotify size={32} style={{ color: iconColor }} />
                         </a>
-                        {/* Discord Icon */}
-                        <a href="https://discord.com/"
+                        {/* SoundCloud Icon */}
+                        <a href="https://soundcloud.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mr-5 hover:text-white">
-                            <FaDiscord size={32} style={{ color: iconColor }} />
+                            <FaSoundcloud size={32} style={{ color: iconColor }} />
+                        </a>
+                        {/* Apple Music Icon */}
+                        <a href="https://music.apple.com/us/browse"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mr-5 hover:text-white">
+                            <SiApplemusic size={32} style={{ color: iconColor }} />
+                        </a>
+                        {/* YouTube Icon */}
+                        <a href="https://www.youtube.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mr-5 hover:text-white">
+                            <FaYoutube size={32} style={{ color: iconColor }} />
                         </a>
                     </nav>
                 </div>

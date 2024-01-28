@@ -9,9 +9,9 @@ export default function About() {
 
   return (
     <div>
-      <section id="about" style={{ marginTop: '8rem', marginBottom: '7rem' }}>
+      <section id="about" className="lg:mt-32 lg:mb-32 md:mt-16">
         <div className="container mx-auto px-10 py-20 flex flex-col md:flex-row items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start mb-16 md:mb-0">
+          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mt-10 sm:mt-10 order-1 md:order-2 flex flex-col md:items-start">
             <h1
               ref={headingRef}
               tabIndex="0"
@@ -29,7 +29,7 @@ export default function About() {
               Let the music of Syntax take you on a journey that you will never forget!
             </p>
           </div>
-          <div>
+          <div className="order-2 ">
             <img
               src="/Band_1.png"
               alt="80s Retro band photo"

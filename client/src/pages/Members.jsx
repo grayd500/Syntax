@@ -17,76 +17,109 @@ const LOGIN_MUTATION = gql`
 `;
 
 const BandMemberLogin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-  const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+    };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
 
-  const handleLogin = async () => {
-    try {
-      console.log('Attempting login with:', { username, password }); // Log the credentials being used
-      const { data } = await login({ variables: { username, password } });
-      console.log('Login response:', data); // Log the response from the server
-  
-      if (data.login.token) {
-        console.log('Login successful!');
-        navigate('/membersHome');
-      }
-    } catch (e) {
-      console.error('Login error:', e.message); // Log any error that occurs during login
-    }
-  };
+    const handleLogin = async () => {
+        try {
+            console.log('Attempting login with:', { username, password }); // Log the credentials being used
+            const { data } = await login({ variables: { username, password } });
+            console.log('Login response:', data); // Log the response from the server
 
-  return (
-    <div style={{ marginTop: '8rem', marginBottom: '24rem' }}>
-      <div style={{
-          maxWidth: '400px',
-          margin: 'auto',
-          padding: '20px',
-          textAlign: 'center',
-      }}>
-        <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>Band Member Login</h2>
+            if (data.login.token) {
+                console.log('Login successful!');
+                navigate('/membersHome');
+            }
+        } catch (e) {
+            console.error('Login error:', e.message); // Log any error that occurs during login
+        }
+    };
 
-        {loading && <p>Loading...</p>}
-        {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
+    return (
+        <div className="mt-32 mb-96">
+            <div
+                className="max-w-md mx-auto p-7 text-center border-2 border-white rounded-lg"
+                style={{
+                    boxShadow: '0px 0px 20px 10px #E53179ff'
+                }}
+            >
+                <h2 style={{
+                    color: '#DA1279ff',
+                    marginTop: '20px'
+                }}
+                >
+                    Band Member Login</h2>
 
-        <div>
-          <label htmlFor="username" style={{ color: '#ffffff' }}>Username:</label>
-          <input
-              type="text"
-              id="username"
-              placeholder="Username"
-              value={username}
-              onChange={handleUsernameChange}
-              style={{ margin: '10px', padding: '5px' }}
-          />
+                {loading && <p>Loading...</p>}
+                {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
+
+                <div>
+                    <label
+                        htmlFor="username"
+                        style={{
+                            color: '#ffffff'
+                        }}
+                    >
+                        Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        value={username}
+                        onChange={handleUsernameChange}
+                        style={{ margin: '10px', padding: '5px' }}
+                    />
+                </div>
+                <div>
+                    <label
+                        htmlFor="password"
+                        style={{
+                            color: '#ffffff'
+                        }}
+                    >
+                        Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        style={{ margin: '10px', padding: '5px' }}
+                    />
+                </div>
+                <div>
+                    <button
+                        onClick={handleLogin}
+                        style={{
+                            margin: '10px',
+                            padding: '10px',
+                            backgroundColor: '#DA1279ff',
+                            color: '#ffffff',
+                            borderRadius: '5px'
+                        }}
+                    >
+                        Login</button>
+                </div>
+                <h2
+                    style={{
+                        color: '#DA1279ff',
+                        marginTop: '20px'
+                    }}
+                >
+                    Sorry friends, this one's for us!</h2>
+            </div>
         </div>
-        <div>
-          <label htmlFor="password" style={{ color: '#ffffff' }}>Password:</label>
-          <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={handlePasswordChange}
-              style={{ margin: '10px', padding: '5px' }}
-          />
-        </div>
-        <div>
-          <button onClick={handleLogin} style={{ margin: '10px', padding: '10px', backgroundColor: '#DA1279ff', color: '#ffffff', borderRadius: '5px' }}>Login</button>
-        </div>
-        <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>Sorry friends, this one's for us!</h2>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default BandMemberLogin;
