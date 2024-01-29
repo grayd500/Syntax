@@ -35,8 +35,8 @@ export default function Footer() {
                             className="mr-5 hover:text-white">
                             <FaLinkedin size={32} style={{ color: iconColor }} />
                         </a>
-                         {/* Discord Icon */}
-                         <a href="https://discord.com/"
+                        {/* Discord Icon */}
+                        <a href="https://discord.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mr-5 hover:text-white">
@@ -62,13 +62,6 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="mr-5 hover:text-white">
                             <SiApplemusic size={32} style={{ color: iconColor }} />
-                        </a>
-                        {/* YouTube Icon */}
-                        <a href="https://www.youtube.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mr-5 hover:text-white">
-                            <FaYoutube size={32} style={{ color: iconColor }} />
                         </a>
                     </nav>
                 </div>

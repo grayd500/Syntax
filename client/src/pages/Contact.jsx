@@ -82,7 +82,7 @@ export default function Contact() {
           style={{
             border: '2px solid white',
             borderRadius: '10px',
-            boxShadow: '0px 0px 20px 10px #E53179ff'
+            boxShadow: '0px 0px 30px 10px #8a2be2',
           }}
         >
           <h2
