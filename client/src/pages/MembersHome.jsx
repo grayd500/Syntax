@@ -1,3 +1,4 @@
+// client/src/pages/MembersHome.jsx:
 export default function MembersHome() {
   return (
     <div className="text-center" style={{ marginTop: '8rem', marginBottom: '38rem' }}>

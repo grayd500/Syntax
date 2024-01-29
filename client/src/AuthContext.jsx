@@ -1,5 +1,5 @@
 // client/src/AuthContext.jsx
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useCallback } from 'react';
 
 export const AuthContext = createContext({
   isAuthenticated: false,
@@ -11,17 +11,26 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Function to handle login
-  const login = () => {
+  const login = useCallback(() => {
+    console.log("Logging in");
     setIsAuthenticated(true);
-  };
+  }, []);
 
   // Function to handle logout
-  const logout = () => {
+  const logout = useCallback(() => {
+    console.log("Logging out");
     setIsAuthenticated(false);
+  }, []);
+
+  // The value object that we pass to the Provider
+  const authContextValue = {
+    isAuthenticated,
+    login,
+    logout
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={authContextValue}>
       {children}
     </AuthContext.Provider>
   );
@@ -34,6 +43,3 @@ export const useAuth = () => {
   }
   return context;
 };
-
-
-
