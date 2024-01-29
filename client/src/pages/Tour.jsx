@@ -24,18 +24,27 @@ const GET_EVENTS = gql`
 `;
 
 const GeneralContainer = styled('div')({
-  marginTop: '6rem',
+  marginTop: '7rem',
 });
 
 const StyledTableContainer = styled(TableContainer)({
   margin: "auto",
-  maxWidth: "70%",
+  maxWidth: "65%",
   overflowX: "auto",
   marginBottom: "40px",
+  border: "1px solid white",
+  boxShadow: '0px 0px 20px 10px #447AC2ff',
+  '@media (max-width: 768px)': {
+    maxWidth: "80%", // For medium screens
+  },
+  '@media (max-width: 480px)': {
+    maxWidth: "100%", // For small screens
+  },
 });
 
 const StyledTable = styled(Table)({
   minWidth: 300,
+  border: "2px solid white"
 });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

@@ -38,7 +38,7 @@ export default function About() {
                 width: '600',
                 height: '300',
                 border: '2px solid white',
-                boxShadow: '0px 0px 20px 10px #E53179ff'
+                boxShadow: '0px 0px 30px 5px blue'
               }}
             />
           </div>

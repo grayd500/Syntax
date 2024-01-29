@@ -10,14 +10,14 @@ module.exports = [
     date: new Date('2024-06-24'),
     location: 'Austin, Texas',
     venue: 'Emos East',
-    description: 'Album Release Party.',
+    description: 'Album Release Party',
     ticket: 'https://frontgatetickets.com',
   },
   {
     date: new Date('2024-06-27'),
     location: 'Luckenbach, Texas',
     venue: 'Luckenbach Dance Hall',
-    description: 'Live at historic Luckenback',
+    description: 'Live at Historic Luckenback',
     ticket: 'https://frontgatetickets.com',
   },
   {
@@ -45,7 +45,7 @@ module.exports = [
     date: new Date('2024-07-9'),
     location: 'Los Angeles, California',
     venue: 'Dodger Stadium',
-    description: 'Stay after the game for concert',
+    description: 'Post Game Concert',
     ticket: 'https://frontgatetickets.com',
   },
   {
