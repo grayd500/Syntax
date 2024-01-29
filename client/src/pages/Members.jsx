@@ -21,8 +21,8 @@ const BandMemberLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
-  const { setIsAuthenticated } = useContext(AuthContext); // Use the context
+  const [loginMutation, { loading, error }] = useMutation(LOGIN_MUTATION); // Renamed to loginMutation
+  const { login } = useContext(AuthContext); // Destructure only login from AuthContext
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -35,13 +35,12 @@ const BandMemberLogin = () => {
   const handleLogin = async () => {
     try {
       console.log('Attempting login with:', { username, password });
-      const { data } = await login({ variables: { username, password } });
+      const { data } = await loginMutation({ variables: { username, password } }); // Use loginMutation
       console.log('Login response:', data);
 
       if (data.login.token) {
         console.log('Login successful!');
-        // Update the authentication state
-        setIsAuthenticated(true);
+        login(); // Use login from AuthContext
         navigate('/membersHome');
       }
     } catch (e) {

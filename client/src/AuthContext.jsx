@@ -1,17 +1,21 @@
 // client/src/AuthContext.jsx
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({
+  isAuthenticated: false,
+  login: () => {},
+  logout: () => {}
+});
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Function to set isAuthenticated to true
+  // Function to handle login
   const login = () => {
     setIsAuthenticated(true);
   };
 
-  // Function to set isAuthenticated to false
+  // Function to handle logout
   const logout = () => {
     setIsAuthenticated(false);
   };
@@ -23,6 +27,13 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = React.useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
 
 
