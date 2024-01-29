@@ -14,6 +14,7 @@ import Merch from './pages/Merch';
 import Tour from './pages/Tour';
 import Members from './pages/Members';
 import MembersHome from './pages/MembersHome';
+import { AuthProvider } from './AuthContext';
 
 // Set up the Apollo client instance with your server's GraphQL endpoint
 const client = new ApolloClient({
@@ -72,7 +73,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </ApolloProvider>
   </React.StrictMode>
 );

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, gql } from '@apollo/client';
+import { useAuth } from '../AuthContext'; // Import the useAuth hook
 
 // GraphQL mutation for logging in
 const LOGIN_MUTATION = gql`
@@ -21,6 +22,7 @@ const BandMemberLogin = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
+    const { setIsAuthenticated } = useAuth(); // Use the authentication context
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -32,16 +34,17 @@ const BandMemberLogin = () => {
 
     const handleLogin = async () => {
         try {
-            console.log('Attempting login with:', { username, password }); // Log the credentials being used
+            console.log('Attempting login with:', { username, password });
             const { data } = await login({ variables: { username, password } });
-            console.log('Login response:', data); // Log the response from the server
+            console.log('Login response:', data);
 
             if (data.login.token) {
                 console.log('Login successful!');
+                setIsAuthenticated(true); // Update authentication state
                 navigate('/membersHome');
             }
         } catch (e) {
-            console.error('Login error:', e.message); // Log any error that occurs during login
+            console.error('Login error:', e.message);
         }
     };
 
@@ -53,24 +56,15 @@ const BandMemberLogin = () => {
                     boxShadow: '0px 0px 20px 10px #E53179ff'
                 }}
             >
-                <h2 style={{
-                    color: '#DA1279ff',
-                    marginTop: '20px'
-                }}
-                >
-                    Band Member Login</h2>
+                <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>
+                    Band Member Login
+                </h2>
 
                 {loading && <p>Loading...</p>}
                 {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
 
                 <div>
-                    <label
-                        htmlFor="username"
-                        style={{
-                            color: '#ffffff'
-                        }}
-                    >
-                        Username:</label>
+                    <label htmlFor="username" style={{ color: '#ffffff' }}>Username:</label>
                     <input
                         type="text"
                         id="username"
@@ -80,14 +74,9 @@ const BandMemberLogin = () => {
                         style={{ margin: '10px', padding: '5px' }}
                     />
                 </div>
+
                 <div>
-                    <label
-                        htmlFor="password"
-                        style={{
-                            color: '#ffffff'
-                        }}
-                    >
-                        Password:</label>
+                    <label htmlFor="password" style={{ color: '#ffffff' }}>Password:</label>
                     <input
                         type="password"
                         id="password"
@@ -97,6 +86,7 @@ const BandMemberLogin = () => {
                         style={{ margin: '10px', padding: '5px' }}
                     />
                 </div>
+
                 <div>
                     <button
                         onClick={handleLogin}
@@ -108,15 +98,13 @@ const BandMemberLogin = () => {
                             borderRadius: '5px'
                         }}
                     >
-                        Login</button>
+                        Login
+                    </button>
                 </div>
-                <h2
-                    style={{
-                        color: '#DA1279ff',
-                        marginTop: '20px'
-                    }}
-                >
-                    Sorry friends, this one's for us!</h2>
+                
+                <h2 style={{ color: '#DA1279ff', marginTop: '20px' }}>
+                    Sorry friends, this one's for us!
+                </h2>
             </div>
         </div>
     );
