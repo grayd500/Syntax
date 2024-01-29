@@ -1,4 +1,3 @@
-// server/server.js:
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
@@ -13,9 +12,10 @@ if (!process.env.JWT_SECRET) {
 
 const jwt = require("jsonwebtoken");
 const express = require("express");
+const cors = require("cors"); // Include CORS
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
-const https = require("https"); // Import the HTTPS module
+const https = require("https");
 const fs = require("fs");
 const { authMiddleWare } = require('./utils/auth');
 const { typeDefs, resolvers } = require("./schemas");
@@ -23,6 +23,14 @@ const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:5173', // Replace with your local development environment URL
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions)); // Apply CORS middleware
 
 const server = new ApolloServer({
   typeDefs,
@@ -50,7 +58,6 @@ const startApolloServer = async () => {
       res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
 
-    // Start HTTP Server for Production
     db.once("open", () => {
       app.listen(PORT, () => {
         console.log(`HTTP server running on port ${PORT}!`);
@@ -58,13 +65,11 @@ const startApolloServer = async () => {
       });
     });
   } else {
-    // HTTPS setup for local development
     const httpsOptions = {
-      key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")), // Path to your key.pem
-      cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")), // Path to your cert.pem
+      key: fs.readFileSync(path.join(__dirname, "../certs/key.pem")),
+      cert: fs.readFileSync(path.join(__dirname, "../certs/cert.pem")),
     };
 
-    // Start HTTPS Server for Development
     db.once("open", () => {
       https.createServer(httpsOptions, app).listen(PORT, () => {
         console.log(`HTTPS server running on port ${PORT}!`);
