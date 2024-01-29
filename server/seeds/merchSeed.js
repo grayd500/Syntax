@@ -3,7 +3,7 @@ module.exports = [
     title: 'Revival Poster',
     description: '36x24 Wall Poster',
     price: 10.0,
-    imageUrl: '../images/Logo_Transparent.png',
+   
     category: 'Posters',
   },
   {
