@@ -30,7 +30,7 @@ export default function Merch() {
           {data.merch.map((item) => (
             <Grid item key={item._id} xs={12} sm={6} md={4}>
               <Card>
-                <img src={item.imageUrl} alt={item.title} />
+                <img className="merchPic" src={item.imageUrl} alt={item.title} />
                 <CardContent>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
