@@ -1,21 +1,27 @@
+// client/src/pages/home.jsx:
 import React, { useState, useEffect } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import { useAuth } from '../AuthContext';
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [feedback, setFeedback] = useState('');
   const [responses, setResponses] = useState([]);
 
-  useEffect(() => {
-    localStorage.setItem('responses', JSON.stringify(responses));
-  }, [responses]);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
+    console.log("Loading responses from localStorage");
     const storedResponses = localStorage.getItem('responses');
     if (storedResponses) {
       setResponses(JSON.parse(storedResponses));
     }
   }, []);
+
+  useEffect(() => {
+    console.log("Saving responses to localStorage");
+    localStorage.setItem('responses', JSON.stringify(responses));
+  }, [responses]);
 
   const togglePlay = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
@@ -26,12 +32,24 @@ export default function Home() {
   };
 
   const handleSubmit = () => {
+    console.log("Submit clicked. isAuthenticated:", isAuthenticated);
+    if (!isAuthenticated) {
+      console.log("User is not authenticated.");
+      alert('You need to log in to submit a comment.');
+      return;
+    }
+
     if (feedback.trim() !== '') {
+      console.log("Adding new feedback:", feedback);
       const truncatedFeedback = feedback.slice(0, 70);
       setResponses((prevResponses) => [...prevResponses, truncatedFeedback]);
       setFeedback('');
+    } else {
+      console.log("Feedback is empty or only whitespace");
     }
   };
+
+  console.log("Rendering Home component");
 
   return (
     <div className="text-center my-8 md:flex md:flex-wrap"
@@ -116,4 +134,5 @@ export default function Home() {
     </div>
   );
 }
+
 
