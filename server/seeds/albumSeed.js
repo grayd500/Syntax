@@ -11,7 +11,7 @@ module.exports = [
     ],
   },
   {
-    title: 'Neon Mountains Vol 2',
+    title: 'Neon Mountains',
     releaseDate: new Date('2021-12-31'),
     tracklist: [
       { trackNumber: 1, title: 'Bootstrap Boogie' },
