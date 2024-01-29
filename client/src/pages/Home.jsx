@@ -110,6 +110,7 @@ export default function Home() {
             color: '#E53179ff',
           }}
         >
+          {/* Comments */}
           Let us know what you think!
         </h2>
         <div className="mt-4">

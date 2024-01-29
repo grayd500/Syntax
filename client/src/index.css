@@ -7,6 +7,23 @@ body {
     background-color: black;
 }
 
+/* img, video
+{
+  max-width: 100%;
+  height: 477px;
+  width: 477px;
+} */
+
+.merchPic {
+    height: 477px;
+    width: 477px;
+}
+
+.merchCard:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+  }
+
 /* @media only screen and (max-width: 768px) {
 
 }
