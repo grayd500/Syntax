@@ -38,14 +38,6 @@ Whether you're a fan of synth music or just curious about the creative concept, 
 
 Feel free to share your thoughts, suggestions, or simply enjoy the retro atmosphere crafted within the Syntax project.
 
-
-  ## Credits
-  - ChatGPT for code snippets and README assistance
-  - Coding Bootcamp at University of Texas at Austin via EdX
-  
-  ## License
-  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
   ## Features
   - JavaScript
   - CSS (Tailwind, Material UI)
@@ -72,8 +64,17 @@ We welcome contributions! If you want to help improve Syntax, here's how you can
 3. **Pull Requests:**
    - Submit pull requests for code contributions. Follow our coding standards and test your changes.
 
-Thank you for helping make Syntax even better!
+  Thank you for helping make Syntax even better!
+
+
+## Credits
+  - ChatGPT for code snippets and README assistance
+  - Coding Bootcamp at University of Texas at Austin via EdX
   
+  ## License
+  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+
 ## Questions
 
 If you have any questions, feel free to contact us:
