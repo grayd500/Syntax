@@ -15,17 +15,13 @@ db.once('open', async () => {
     await Album.deleteMany({});
     await Event.deleteMany({});
     await Merch.deleteMany({});
-
     await Album.insertMany(seedAlbums);
     await Event.insertMany(seedEvents);
     await Merch.insertMany(seedMerch);
 
   } catch (err) {
-    console.log(err);
     process.exit(1);
   }
 
-  console.log('all done!');
   process.exit(0);
 });
-

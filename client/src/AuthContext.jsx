@@ -12,13 +12,11 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle login
   const login = useCallback(() => {
-    console.log("Logging in");
     setIsAuthenticated(true);
   }, []);
 
   // Function to handle logout
   const logout = useCallback(() => {
-    console.log("Logging out");
     setIsAuthenticated(false);
   }, []);
 

@@ -34,12 +34,9 @@ const BandMemberLogin = () => {
 
   const handleLogin = async () => {
     try {
-      console.log('Attempting login with:', { username, password });
       const { data } = await loginMutation({ variables: { username, password } }); // Use loginMutation
-      console.log('Login response:', data);
 
       if (data.login.token) {
-        console.log('Login successful!');
         login(); // Use login from AuthContext
         navigate('/membersHome');
       }

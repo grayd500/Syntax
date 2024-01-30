@@ -35,29 +35,24 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { input }) => {
-      console.log('Login resolver:', input);
       const { username, password } = input;
       const user = await User.findOne({ username });
       if (!user) {
         throw new Error('User not found');
       }
-      console.log('Found user:', user);
-    
+
       const passwordMatch = await bcrypt.compare(password, user.password);
-      console.log('Password from client:', password);
-      console.log('Hashed password from DB:', user.password);
-      console.log('Password match result:', passwordMatch);
       if (!passwordMatch) {
         throw new Error('Invalid password');
       }
-    
+
       const token = signToken(user);
       return {
         token,
         user,
       };
     },
-    
+
     register: async (parent, { input }) => {
       const { username, password, firstName, lastName, email } = input;
       const existingUser = await User.findOne({ username });

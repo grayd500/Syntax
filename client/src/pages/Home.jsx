@@ -1,61 +1,18 @@
-// client/src/pages/home.jsx:
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import { useAuth } from '../AuthContext';
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [feedback, setFeedback] = useState('');
-  const [responses, setResponses] = useState([]);
-
-  const { isAuthenticated } = useAuth();
-
-  useEffect(() => {
-    console.log("Loading responses from localStorage");
-    const storedResponses = localStorage.getItem('responses');
-    if (storedResponses) {
-      setResponses(JSON.parse(storedResponses));
-    }
-  }, []);
-
-  useEffect(() => {
-    console.log("Saving responses to localStorage");
-    localStorage.setItem('responses', JSON.stringify(responses));
-  }, [responses]);
 
   const togglePlay = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
   };
 
-  const handleFeedbackChange = (event) => {
-    setFeedback(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    console.log("Submit clicked. isAuthenticated:", isAuthenticated);
-    if (!isAuthenticated) {
-      console.log("User is not authenticated.");
-      alert('You need to log in to submit a comment.');
-      return;
-    }
-
-    if (feedback.trim() !== '') {
-      console.log("Adding new feedback:", feedback);
-      const truncatedFeedback = feedback.slice(0, 70);
-      setResponses((prevResponses) => [...prevResponses, truncatedFeedback]);
-      setFeedback('');
-    } else {
-      console.log("Feedback is empty or only whitespace");
-    }
-  };
-
-  console.log("Rendering Home component");
-
   return (
     <div className="text-center my-8 md:flex md:flex-wrap"
       style={{
-        marginTop: '120px',
-        marginBottom: '55px'
+        marginTop: "120px",
+        marginBottom: "55px"
       }}
     >
       <div className="order-1 md:flex-1 mt-7 md:w-2/3 mx-auto lg:ml-14 lg:mb-10">
@@ -66,6 +23,7 @@ export default function Home() {
           style={{ boxShadow: '0px 0px 20px 10px #E53179ff' }}
         />
       </div>
+
       <div
         id="album-info"
         className="order-2 md:flex-1 mt-8 md:ml-8 md:max-w-600px lg:mr-14 self-center md:w-full">
@@ -78,6 +36,7 @@ export default function Home() {
         >
           Check out the latest single <br />"Binary Commencement Bytes" <br />from our album Neon Mountains, Volume 2!
         </p>
+
         <ReactAudioPlayer
           src="/night-city-knight.mp3"
           autoPlay={isPlaying}
@@ -89,51 +48,7 @@ export default function Home() {
             marginRight: 'auto'
           }}
         />
-        <div
-          id="feedback-list"
-          className="order-3 mt-8 text-left flex justify-left items-start"
-          style={{
-            fontSize: '14px',
-            color: '#398FD4ff'
-          }}
-        >
-          <ul>
-            {responses.slice(-5).map((response, index) => (
-              <li key={index}>
-                {response}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <h2 className="text-xl mt-8"
-          style={{
-            color: '#E53179ff',
-          }}
-        >
-          {/* Comments */}
-          Let us know what you think!
-        </h2>
-        <div className="mt-4">
-          <input
-            type="text"
-            value={feedback}
-            onChange={handleFeedbackChange}
-            placeholder='Feedback and name!'
-            className="p-2 bg-white mr-2 text-sm rounded-md pr-10 pl-4 md:w-1/3"
-          />
-          <button
-            onClick={handleSubmit}
-            className="p-2 px-4 text-sm cursor-pointer text-white rounded-md"
-            style={{
-              backgroundColor: '#E53179ff'
-            }}
-          >
-            Submit
-          </button>
-        </div>
       </div>
     </div>
   );
 }
-
-
