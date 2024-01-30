@@ -8,14 +8,14 @@ module.exports = [
   },
   {
     title: 'Syntax',
-    description: 'Our self titled debut album',
+    description: 'Our self-titled debut album',
     price: 15.0,
     imageUrl: '/Album_Syntax.png',
     category: 'Albums',
   },
   {
     title: 'System Error',
-    description: 'Sophmore album',
+    description: 'Sophomore album',
     price: 15.0,
     imageUrl: '/Album_SystemError.png',
     category: 'Albums',

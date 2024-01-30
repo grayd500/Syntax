@@ -5,7 +5,10 @@ const albumSchema = new Schema({
     type: String,
     required: true
   },
-  releaseDate: Date,
+  releaseDate: {
+    type: String,
+    required: true
+  },
   tracklist: [
     {
       trackNumber: Number,

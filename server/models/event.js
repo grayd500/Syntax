@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const eventSchema = new Schema({
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   location: {

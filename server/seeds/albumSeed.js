@@ -1,7 +1,7 @@
 module.exports = [
   {
     title: 'Syntax',
-    releaseDate: new Date('2020-07-31'),
+    releaseDate: 'July 31, 2020',
     tracklist: [
       { trackNumber: 1, title: 'APIs in the Afternoon' },
       { trackNumber: 2, title: 'Git Grooves' },
@@ -11,8 +11,8 @@ module.exports = [
     ],
   },
   {
-    title: 'Neon Mountains',
-    releaseDate: new Date('2021-12-31'),
+    title: 'Neon Mountains Vol Two',
+    releaseDate: 'December 31, 2021',
     tracklist: [
       { trackNumber: 1, title: 'Bootstrap Boogie' },
       { trackNumber: 2, title: 'MERN Melody' },
@@ -23,7 +23,7 @@ module.exports = [
   },
   {
     title: 'Neon Mountains',
-    releaseDate: new Date('2022-05-10'),
+    releaseDate: 'May 10, 2022',
     tracklist: [
       { trackNumber: 1, title: 'Looping on Your Love' },
       { trackNumber: 2, title: 'Binary Beat of Love' },
@@ -32,7 +32,7 @@ module.exports = [
   },
   {
     title: 'System Error',
-    releaseDate: new Date('2024-01-10'),
+    releaseDate: 'January 10, 2024',
     tracklist: [
       { trackNumber: 1, title: 'Byte Me Tender' },
       { trackNumber: 2, title: 'Catch My Exceptions' },
