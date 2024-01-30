@@ -73,7 +73,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Tour() {
   const { loading, error, data } = useQuery(GET_EVENTS);
 
-  console.log("GraphQL Data:", data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
