@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const TourForm = ({ formName }) => {
@@ -29,7 +30,6 @@ const TourForm = ({ formName }) => {
   };
 
   return (
-
     <form
       name={formName}
       onSubmit={handleSubmit}
@@ -148,16 +148,5 @@ export default function Contact() {
       </div>
     </section>
   );
-=======
-    <div
-      className="text-center"
-      style={{ marginTop: '8rem', marginBottom: '38rem' }}
-    >
-      <h1 style={{ color: 'white', fontSize: '36px' }}>
-        Welcome Syntax Member!
-      </h1>
-      <p style={{ color: 'white', fontSize: '20px' }}>You know what to do!</p>
-    </div>
-  );
-
 }
+
