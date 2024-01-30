@@ -50,7 +50,7 @@ const BandMemberLogin = () => {
   return (
     <div className="mt-32 mb-96">
       <div
-        className="max-w-md mx-auto p-7 text-center border-2 border-white rounded-lg"
+        className="max-w-md mx-auto px-2 py-7 text-center border-2 border-white rounded-lg"
         style={{
           boxShadow: '0px 0px 20px 10px #E53179ff',
         }}
