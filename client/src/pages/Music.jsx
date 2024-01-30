@@ -53,7 +53,7 @@ export default function Music() {
               </div>
             </div>
           ))}
-        </Slider>app://resources/notifications.html#
+        </Slider>
       </div>
     </div>
   );

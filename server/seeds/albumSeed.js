@@ -11,23 +11,23 @@ module.exports = [
     ],
   },
   {
-    title: 'Neon Mountains Vol Two',
+    title: 'Neon Mountains',
     releaseDate: 'December 31, 2021',
+    tracklist: [
+      { trackNumber: 1, title: 'Looping on Your Love' },
+      { trackNumber: 2, title: 'Binary Beat of Love' },
+      { trackNumber: 3, title: 'Recursive Romance' },
+    ],
+  },
+  {
+    title: 'Neon Mountains Vol Two',
+    releaseDate: 'May 10, 2022',
     tracklist: [
       { trackNumber: 1, title: 'Bootstrap Boogie' },
       { trackNumber: 2, title: 'MERN Melody' },
       { trackNumber: 3, title: 'Framework Funk' },
       { trackNumber: 4, title: 'Cache Me If You Can' },
       { trackNumber: 5, title: 'Infinite Loop of Desire' },
-    ],
-  },
-  {
-    title: 'Neon Mountains',
-    releaseDate: 'May 10, 2022',
-    tracklist: [
-      { trackNumber: 1, title: 'Looping on Your Love' },
-      { trackNumber: 2, title: 'Binary Beat of Love' },
-      { trackNumber: 3, title: 'Recursive Romance' },
     ],
   },
   {
