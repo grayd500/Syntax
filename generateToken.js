@@ -16,8 +16,6 @@ const payload = {
 const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
 
 // Output the token
-console.log('Generated JWT Token:');
-console.log(token);
 
 // Optionally, you can save the token to a file
 fs.writeFileSync('generatedToken.txt', token, 'utf-8');

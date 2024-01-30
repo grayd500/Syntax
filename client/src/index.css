@@ -2,35 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    background-color: black;
+  background-color: black;
 }
 
-/* img, video
-{
-  max-width: 100%;
+.merchPic {
   height: 477px;
   width: 477px;
-} */
-
-.merchPic {
-    height: 477px;
-    width: 477px;
 }
 
 .merchCard:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s ease-in-out;
-  }
-
-/* @media only screen and (max-width: 768px) {
-
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
 }
-
-@media only screen and (max-width: 480px) {
-    /* Styles for mobile screens 
-} 
 
 /* CSS HEX 
 Band Photo

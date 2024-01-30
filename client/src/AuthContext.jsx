@@ -4,7 +4,7 @@ import React, { createContext, useState, useCallback } from 'react';
 export const AuthContext = createContext({
   isAuthenticated: false,
   login: () => {},
-  logout: () => {}
+  logout: () => {},
 });
 
 export const AuthProvider = ({ children }) => {
@@ -12,13 +12,11 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle login
   const login = useCallback(() => {
-    console.log("Logging in");
     setIsAuthenticated(true);
   }, []);
 
   // Function to handle logout
   const logout = useCallback(() => {
-    console.log("Logging out");
     setIsAuthenticated(false);
   }, []);
 
@@ -26,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const authContextValue = {
     isAuthenticated,
     login,
-    logout
+    logout,
   };
 
   return (
