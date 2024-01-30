@@ -1,37 +1,47 @@
-// server/utils/auth.js:
-const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
+const User = require('../models/user'); // Ensure this path is correct
 
-const secret = 'Syntax';
+const secret = process.env.JWT_SECRET; // Use the JWT_SECRET from your environment variables
 const expiration = '2h';
 
-// middleware to extract token from incoming request
-const authMiddleWare = function ({ req }) {
-  // grab token from header
+// Middleware to extract and verify token from incoming request
+const authMiddleWare = async ({ req }) => {
+  // Grab token from header
   let token = req.headers.authorization;
-  // split token string
-  if (req.headers.authorization) {
-    token = token.split(' ').pop().trim();
+  // Split token string and extract the token
+  if (token) {
+    token = token.split(' ')[1].trim();
   }
-  // if no token, return the request-
+
+  // If no token, return the request without modification
   if (!token) {
-    return req;
+    return { user: null };
   }
-  // if token found verify using the jwt package
+
+  // If token found, verify using the jwt package
   try {
-    const { data } = jwt.verify(token, secret, { maxAge: expiration });
-    req.user = data;
-  } catch {}
-  // return the request with the decoded token on the request body as a user property
-  return req;
+    const decoded = jwt.verify(token, secret, { maxAge: expiration });
+    const user = await User.findById(decoded.userId);
+
+    // Attach user to the context if user exists
+    if (user) {
+      return { user };
+    }
+  } catch (error) {
+    console.error('JWT Token Error:', error.message);
+  }
+
+  return { user: null };
 };
-// function to sign a token (aka sign up, login)
-const signToken = function ({ email, username, _id }) {
-  // sign the token with the parameters and secret
-  const payload = { email, username, _id };
-  return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+
+// Function to sign a token (used for sign up, login)
+const signToken = function ({ _id, email, username }) {
+  // Sign the token with the user's details and secret
+  const payload = { userId: _id, email, username };
+  return jwt.sign(payload, secret, { expiresIn: expiration });
 };
-// export function to use in our app
+
+// Export functions for use in the application
 module.exports = {
   authMiddleWare,
   signToken,
