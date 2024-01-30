@@ -32,7 +32,7 @@ export default function Merch() {
               <Card className="merchCard">
                 <img className="merchPic" src={item.imageUrl} alt={item.title} />
                 <CardContent>
-                  <h3>{item.title}</h3>
+                  <h3 style={{ fontWeight: 'bold', fontSize: 'larger' }}>{item.title}</h3>
                   <p>{item.description}</p>
                   <p>${item.price}</p>
                   {/* Display size if available */}

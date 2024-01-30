@@ -8,7 +8,6 @@ const { Album, Event, Merch, User } = require('../models');
 const seedAlbums = require('./albumSeed');
 const seedEvents = require('./eventSeed');
 const seedMerch = require('./merchSeed');
-const seedUser = require('./userSeed');
 
 db.once('open', async () => {
   try {

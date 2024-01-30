@@ -44,7 +44,7 @@ export default function Music() {
               <img src={`/Album_${album.title.replace(/\s+/g, '')}.png`} alt={album.title} className="square-image" />
               <div className="overlay">
                 <div className="album-details">
-                  <h3>{album.title}</h3>
+                <h3 style={{ fontWeight: 'bold', fontSize: 'larger' }}>{album.title}</h3>                   
                   <p>Release Date: {new Date(album.releaseDate).toLocaleDateString()}</p>
                   <ul>
                     {album.tracklist.map((track, i) => (
