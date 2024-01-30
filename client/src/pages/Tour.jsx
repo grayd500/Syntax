@@ -73,6 +73,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Tour() {
   const { loading, error, data } = useQuery(GET_EVENTS);
 
+  console.log("GraphQL Data:", data);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -95,7 +97,7 @@ export default function Tour() {
                 <StyledTableCell component="th" scope="row">
                   {event.description}
                 </StyledTableCell>
-                <StyledTableCell align="right">{event.date}</StyledTableCell>
+                <StyledTableCell align="right">{new Date(event.date).toLocaleDateString()}</StyledTableCell>
                 <StyledTableCell align="right">{event.location}</StyledTableCell>
                 <StyledTableCell align="right">{event.venue}</StyledTableCell>
                 <StyledTableCell align="right">
