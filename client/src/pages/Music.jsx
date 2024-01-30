@@ -19,10 +19,8 @@ const GET_ALBUMS = gql`
     }
   }
 `;
-
 export default function Music() {
   const { loading, error, data } = useQuery(GET_ALBUMS);
-
   const settings = {
     dots: false,
     infinite: true,
@@ -30,31 +28,19 @@ export default function Music() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
   return (
-    <div
-      id="music"
-      className="text-white body-font"
-      style={{ marginTop: '100px' }}
-    >
+
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <Slider {...settings} className="square-carousel">
           {data.albums.map((album) => (
             <div key={album._id} className="square-slide">
-              {/* Update the image source to point to the public folder */}
-              <img
-                src={`/Album_${album.title.replace(/\s+/g, '')}.png`}
-                alt={album.title}
+
                 className="square-image"
               />
               <div className="overlay">
                 <div className="album-details">
-
-                <h3 style={{ fontWeight: 'bold', fontSize: 'larger', textDecoration: 'underline' }}>{album.title}</h3>                   
-                <p style={{ textDecoration: 'none', fontStyle: 'italic' }}>Release Date: {new Date(album.releaseDate).toLocaleDateString()}</p>           <ul>
 
                   <ul>
 
