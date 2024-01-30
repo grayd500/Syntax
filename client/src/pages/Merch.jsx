@@ -25,17 +25,23 @@ export default function Merch() {
 
   return (
     <section id="Merch" style={{ marginTop: '7rem', marginBottom: '12rem' }}>
-      <div className="container px-5 py-10 mx-auto">
-        <Grid container spacing={4}>
+      <div className="container px-5 py-10 mx-auto" >
+        <Grid container spacing={4} >
           {data.merch.map((item) => (
-            <Grid item key={item._id} xs={12} sm={6} md={4}>
-              <Card className="merchCard">
+            <Grid item key={item._id} xs={12} sm={6} md={4} >
+              <Card 
+                className="merchCard"  
+                style={{ 
+                  backgroundColor: 'black',
+                  color: 'white',
+                  boxShadow: '0px 0px 5px 5px cyan'}}>
                 <img
                   className="merchPic"
                   src={item.imageUrl}
                   alt={item.title}
+                  
                 />
-                <CardContent>
+                <CardContent >
                   <h3 style={{ fontWeight: 'bold', fontSize: 'larger' }}>{item.title}</h3>
                   <p>{item.description}</p>
                   <p>${item.price}</p>
