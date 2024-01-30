@@ -3,21 +3,21 @@ const { Schema, model } = require('mongoose');
 const eventSchema = new Schema({
   date: {
     type: String,
-    required: true
+    required: true,
   },
   location: {
     type: String,
-    required: true
+    required: true,
   },
   venue: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
-    type: String
+    type: String,
   },
   ticket: {
-    type: String
+    type: String,
   },
 });
 
