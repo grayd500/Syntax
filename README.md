@@ -95,6 +95,6 @@ If you have any questions, feel free to contact us:
   - [LinkedIn](https://www.linkedin.com/in/dale-haynie-3b66142a7/)
   - [GitHub](https://github.com/Daleray1231)
 
-- **Derek Mondugno**
-  - [LinkedIn](#)
+- **Derek Modugno**
+  - [LinkedIn]((https://www.linkedin.com/in/derek-modugno-9927b72b1/))
   - [GitHub](https://github.com/derekm129)
