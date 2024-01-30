@@ -16,17 +16,29 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch('/', {
+  
+    // Use the Formspree endpoint URL with your actual Form ID
+    const formSpreeEndpoint = 'https://formspree.io/f/xqkrevbl';
+  
+    fetch(formSpreeEndpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', name, email, message }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, message }),
     })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(() => {
         alert('Message sent!');
         // Reset the form using the form element's reset method
         e.target.reset();
       })
-      .catch((error) => alert(error));
+      .catch((error) => alert('Error submitting the form. Please try again later.'));
   }
 
   // Band members data
@@ -188,6 +200,7 @@ export default function Contact() {
         {/* Contact Form */}
         <form
           name="contact"
+          method="POST"
           onSubmit={handleSubmit}
           className="order-2 md:order-1 h-auto md:w-2/3 sm:w-5/6 mx-auto flex flex-col lg:w-2/3 md:py-8 mt-8 md:mt-0 text-left lg:mr-28 lg:ml-8"
           style={{
