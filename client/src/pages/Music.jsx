@@ -52,12 +52,12 @@ export default function Music() {
               />
               <div className="overlay">
                 <div className="album-details">
-                  <h3>{album.title}</h3>
-                  <p>
-                    Release Date:{' '}
-                    {new Date(album.releaseDate).toLocaleDateString()}
-                  </p>
+
+                <h3 style={{ fontWeight: 'bold', fontSize: 'larger', textDecoration: 'underline' }}>{album.title}</h3>                   
+                <p style={{ textDecoration: 'none', fontStyle: 'italic' }}>Release Date: {new Date(album.releaseDate).toLocaleDateString()}</p>           <ul>
+
                   <ul>
+
                     {album.tracklist.map((track, i) => (
                       <li key={i}>{track.title}</li>
                     ))}
