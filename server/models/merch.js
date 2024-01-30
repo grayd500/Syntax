@@ -27,6 +27,6 @@ const merchSchema = new Schema({
   },
 });
 
-const Merch = model('Merch', merchSchema)
+const Merch = model('Merch', merchSchema);
 
 module.exports = Merch;

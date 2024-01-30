@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       {
         path: '/membersHome',
         element: <MembersHome />,
-      }
+      },
       // Add more routes here if needed
     ],
   },

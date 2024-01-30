@@ -4,7 +4,7 @@ import React, { createContext, useState, useCallback } from 'react';
 export const AuthContext = createContext({
   isAuthenticated: false,
   login: () => {},
-  logout: () => {}
+  logout: () => {},
 });
 
 export const AuthProvider = ({ children }) => {
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const authContextValue = {
     isAuthenticated,
     login,
-    logout
+    logout,
   };
 
   return (

@@ -42,6 +42,3 @@ module.exports = [
     category: 'Posters',
   },
 ];
-
-
-

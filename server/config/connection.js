@@ -8,7 +8,9 @@ if (!connectionString) {
   process.exit(1);
 }
 
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 module.exports = mongoose.connection;
-
