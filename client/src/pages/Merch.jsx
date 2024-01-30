@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useEffect, useState } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import { Grid, Card, CardContent } from '@mui/material';
 
 // GraphQL query
@@ -30,7 +30,11 @@ export default function Merch() {
           {data.merch.map((item) => (
             <Grid item key={item._id} xs={12} sm={6} md={4}>
               <Card className="merchCard">
-                <img className="merchPic" src={item.imageUrl} alt={item.title} />
+                <img
+                  className="merchPic"
+                  src={item.imageUrl}
+                  alt={item.title}
+                />
                 <CardContent>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
@@ -46,5 +50,3 @@ export default function Merch() {
     </section>
   );
 }
-
-

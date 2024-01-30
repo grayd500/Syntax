@@ -18,7 +18,6 @@ db.once('open', async () => {
     await Album.insertMany(seedAlbums);
     await Event.insertMany(seedEvents);
     await Merch.insertMany(seedMerch);
-
   } catch (err) {
     process.exit(1);
   }

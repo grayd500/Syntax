@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -28,23 +28,23 @@ const GeneralContainer = styled('div')({
 });
 
 const StyledTableContainer = styled(TableContainer)({
-  margin: "auto",
-  maxWidth: "65%",
-  overflowX: "auto",
-  marginBottom: "40px",
-  border: "1px solid white",
+  margin: 'auto',
+  maxWidth: '65%',
+  overflowX: 'auto',
+  marginBottom: '40px',
+  border: '1px solid white',
   boxShadow: '0px 0px 20px 10px #447AC2ff',
   '@media (max-width: 768px)': {
-    maxWidth: "80%", // For medium screens
+    maxWidth: '80%', // For medium screens
   },
   '@media (max-width: 480px)': {
-    maxWidth: "100%", // For small screens
+    maxWidth: '100%', // For small screens
   },
 });
 
 const StyledTable = styled(Table)({
   minWidth: 300,
-  border: "2px solid white"
+  border: '2px solid white',
 });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -73,7 +73,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Tour() {
   const { loading, error, data } = useQuery(GET_EVENTS);
 
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -96,12 +95,23 @@ export default function Tour() {
                 <StyledTableCell component="th" scope="row">
                   {event.description}
                 </StyledTableCell>
-                <StyledTableCell align="right">{new Date(event.date).toLocaleDateString()}</StyledTableCell>
-                <StyledTableCell align="right">{event.location}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {new Date(event.date).toLocaleDateString()}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {event.location}
+                </StyledTableCell>
                 <StyledTableCell align="right">{event.venue}</StyledTableCell>
                 <StyledTableCell align="right">
-                  <a href={event.ticket} target="_blank" rel="noopener noreferrer">
-                    <Button variant="contained" style={{ backgroundColor: '#241742ff', color: 'white' }}>
+                  <a
+                    href={event.ticket}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="contained"
+                      style={{ backgroundColor: '#241742ff', color: 'white' }}
+                    >
                       Get Tickets
                     </Button>
                   </a>

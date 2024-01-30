@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
 export default function About() {
   const headingRef = useRef(null);
@@ -17,16 +17,21 @@ export default function About() {
               tabIndex="0"
               className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white"
               style={{
-                color: '#E53179ff'
+                color: '#E53179ff',
               }}
             >
               Introducing SYNTAX, sonic pioneers of synth rock!
               <br className="hidden lg:inline-block" />
             </h1>
-            <p className="mb-8 leading-relaxed text-white" >
-              Syntax combines the energy of rock 'n' roll with the electronic soundscapes of synthwave. Embark on a sonic odyssey through the fabric of time and space as they skillfully weave cutting-edge sonic production and iconic songwriting into their musical tapestry.
-              When Syntax takes the stage, be prepared for a sensory explosion - from dazzling lazer lights to mind-bending holographic visuals and explosive pyrotechnics.
-              Let the music of Syntax take you on a journey that you will never forget!
+            <p className="mb-8 leading-relaxed text-white">
+              Syntax combines the energy of rock 'n' roll with the electronic
+              soundscapes of synthwave. Embark on a sonic odyssey through the
+              fabric of time and space as they skillfully weave cutting-edge
+              sonic production and iconic songwriting into their musical
+              tapestry. When Syntax takes the stage, be prepared for a sensory
+              explosion - from dazzling lazer lights to mind-bending holographic
+              visuals and explosive pyrotechnics. Let the music of Syntax take
+              you on a journey that you will never forget!
             </p>
           </div>
           <div className="order-2 ">
@@ -38,7 +43,7 @@ export default function About() {
                 width: '600',
                 height: '300',
                 border: '2px solid white',
-                boxShadow: '0px 0px 30px 5px blue'
+                boxShadow: '0px 0px 30px 5px blue',
               }}
             />
           </div>

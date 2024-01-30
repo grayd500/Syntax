@@ -70,4 +70,3 @@ module.exports = [
     ticket: 'https://frontgatetickets.com',
   },
 ];
-

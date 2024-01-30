@@ -34,7 +34,9 @@ const BandMemberLogin = () => {
 
   const handleLogin = async () => {
     try {
-      const { data } = await loginMutation({ variables: { username, password } }); // Use loginMutation
+      const { data } = await loginMutation({
+        variables: { username, password },
+      }); // Use loginMutation
 
       if (data.login.token) {
         login(); // Use login from AuthContext
@@ -50,13 +52,15 @@ const BandMemberLogin = () => {
       <div
         className="max-w-md mx-auto p-7 text-center border-2 border-white rounded-lg"
         style={{
-          boxShadow: '0px 0px 20px 10px #E53179ff'
+          boxShadow: '0px 0px 20px 10px #E53179ff',
         }}
       >
-        <h2 style={{
+        <h2
+          style={{
             color: '#DA1279ff',
-            marginTop: '20px'
-        }}>
+            marginTop: '20px',
+          }}
+        >
           Band Member Login
         </h2>
 
@@ -97,7 +101,7 @@ const BandMemberLogin = () => {
               padding: '10px',
               backgroundColor: '#DA1279ff',
               color: '#ffffff',
-              borderRadius: '5px'
+              borderRadius: '5px',
             }}
           >
             Login
