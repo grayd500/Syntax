@@ -63,10 +63,21 @@ const typeDefs = gql`
     user: [User]
     protectedData: String
   }
+  input EventInput {
+    date: String!
+    location: String!
+    venue: String!
+    description: String
+    ticket: String
+  }
   type Mutation {
     login(input: LoginInput): AuthPayload
     register(input: RegisterInput): AuthPayload
+    addEvent(input: EventInput): Event
+    updateEvent(id: ID!, input: EventInput): Event
+    deleteEvent(id: ID!): String
   }
 `;
 
 module.exports = typeDefs;
+
