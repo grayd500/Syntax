@@ -2,10 +2,9 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  scalar Date
   type Event {
     _id: ID
-    date: Date!
+    date: String!
     location: String!
     venue: String!
     description: String
@@ -14,7 +13,7 @@ const typeDefs = gql`
   type Album {
     _id: ID
     title: String!
-    releaseDate: Date
+    releaseDate: String!
     tracklist: [Track]
   }
 
