@@ -6,7 +6,7 @@ const TourForm = ({ formName }) => {
   const [date, setDate] = React.useState("");
   const [location, setLocation] = React.useState("");
   const [venue, setVenue] = React.useState("");
-  const [tickets, setTickets] = React.useState("");
+  const [ticket, setTicket] = React.useState("");
 
   const encode = (data) =>
     Object.keys(data)
@@ -15,14 +15,14 @@ const TourForm = ({ formName }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { "form-name": formName, description, date, location, venue, tickets };
+    const formData = { "form-name": formName, description, date, location, venue, ticket };
     
-    fetch("/", {
+    fetch("https://localhost:3001/api/add-event", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode(formData),
     })
-      .then(() => {
+          .then(() => {
         alert("Message sent!");
         e.target.reset();
       })
@@ -111,7 +111,7 @@ const TourForm = ({ formName }) => {
           name="tickets"
           className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           style={{ textShadow: '2px 2px 5px rgba(169, 169, 169, 0.8)' }}
-          onChange={(e) => setTickets(e.target.value)}
+          onChange={(e) => setTicket(e.target.value)}
         />
       </div>
 
