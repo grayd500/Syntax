@@ -15,6 +15,15 @@ import TextField from '@mui/material/TextField';
 // Common components and styles
 const GeneralContainer = styled('div')({
   marginTop: '7rem',
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+});
+
+const FormContainer = styled('div')({
+  width: '48%', // Adjust the width as needed
+  boxSizing: 'border-box',
+  marginBottom: '20px', // Add margin to separate from the table
 });
 
 const StyledTableContainer = styled(TableContainer)({
@@ -130,20 +139,9 @@ const TourForm = ({ formName, handleAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { "form-name": formName, description, date, location, venue, ticket };
-    
-    fetch("https://localhost:3001/api/add-event", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(formData),
-    })
-          .then(() => {
-        alert("Event added!");
-        e.target.reset();
-      })
-      .catch((error) => alert(error));
+    const formData = { description, date, location, venue, ticket };
+    handleAdd(formData);
   };
-  
 
   return (
     <form
@@ -219,12 +217,12 @@ const TourForm = ({ formName, handleAdd }) => {
       </div>
 
       <div className="relative mb-4">
-        <label htmlFor={`${formName}-tickets`} className="leading-7 text-sm text-white">
+        <label htmlFor={`${formName}-ticket`} className="leading-7 text-sm text-white">
           Tickets
         </label>
         <textarea
-          id={`${formName}-tickets`}
-          name="tickets"
+          id={`${formName}-ticket`}
+          name="ticket"
           className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           style={{ textShadow: '2px 2px 5px rgba(169, 169, 169, 0.8)' }}
           onChange={(e) => setTicket(e.target.value)}
@@ -244,6 +242,7 @@ const TourForm = ({ formName, handleAdd }) => {
 
 export default function MembersHome() {
   const { loading, error, data } = useQuery(GET_EVENTS);
+  const [addEvent] = useMutation(ADD_EVENT);
   const [updateEvent] = useMutation(UPDATE_EVENT);
   const [deleteEvent] = useMutation(DELETE_EVENT);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -276,11 +275,29 @@ export default function MembersHome() {
     }
   };
 
+  // Function to handle adding an event
+  const handleAdd = async (formData) => {
+    try {
+      await addEvent({
+        variables: { input: formData },
+      });
+      // Refetch events or update local cache as needed
+      alert("Event added!");
+    } catch (error) {
+      console.error('Error adding event:', error.message);
+      alert("Error adding event. Please try again.");
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <GeneralContainer>
+      {/* Add Tour Form */}
+      <FormContainer>
+        <TourForm formName="add" handleAdd={handleAdd} />
+      </FormContainer>
       <StyledTableContainer component={Paper}>
         <StyledTable aria-label="customized table">
           <TableHead>
