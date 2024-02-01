@@ -16,19 +16,20 @@ import TextField from '@mui/material/TextField';
 const GeneralContainer = styled('div')({
   marginTop: '7rem',
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   flexWrap: 'wrap',
+  
 });
 
 const FormContainer = styled('div')({
-  width: '48%', // Adjust the width as needed
+  width: '40%', // Adjust the width as needed
   boxSizing: 'border-box',
-  marginBottom: '20px', // Add margin to separate from the table
+  marginRight: '1px'
 });
 
 const StyledTableContainer = styled(TableContainer)({
-  margin: 'auto',
-  maxWidth: '65%',
+  margin: '5px',
+  maxWidth: '59%',
   overflowX: 'auto',
   marginBottom: '40px',
   border: '1px solid white',
