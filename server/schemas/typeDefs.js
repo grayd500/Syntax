@@ -1,4 +1,3 @@
-// server/schemas/typeDefs.js:
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
@@ -10,6 +9,7 @@ const typeDefs = gql`
     description: String
     ticket: String
   }
+
   type Album {
     _id: ID
     title: String!
@@ -41,14 +41,17 @@ const typeDefs = gql`
     email: String
     isAdmin: Boolean
   }
+
   type AuthPayload {
     token: String
     user: User
   }
+
   input LoginInput {
     username: String!
     password: String!
   }
+
   input RegisterInput {
     username: String!
     password: String!
@@ -56,6 +59,7 @@ const typeDefs = gql`
     lastName: String
     email: String
   }
+
   type Query {
     events: [Event]
     albums: [Album]
@@ -63,6 +67,7 @@ const typeDefs = gql`
     user: [User]
     protectedData: String
   }
+
   input EventInput {
     date: String!
     location: String!
@@ -70,6 +75,7 @@ const typeDefs = gql`
     description: String
     ticket: String
   }
+
   type Mutation {
     login(input: LoginInput): AuthPayload
     register(input: RegisterInput): AuthPayload
@@ -80,4 +86,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-

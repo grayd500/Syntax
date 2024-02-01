@@ -23,7 +23,7 @@ const TourForm = ({ formName }) => {
       body: encode(formData),
     })
           .then(() => {
-        alert("Message sent!");
+        alert("Event added!");
         e.target.reset();
       })
       .catch((error) => alert(error));
