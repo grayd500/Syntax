@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -18,13 +18,21 @@ const GeneralContainer = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   flexWrap: 'wrap',
-  
+
 });
 
 const FormContainer = styled('div')({
-  width: '40%', // Adjust the width as needed
+  width: '35%', // Adjust the width as needed
   boxSizing: 'border-box',
-  marginRight: '1px'
+  marginRight: '1px',
+  marginTop: '5px',
+  '@media (max-width: 768px)': {
+    width: '70%',
+    marginBottom: '25px'
+  },
+  '@media (max-width: 480px)': {
+    width: '70%',
+  },
 });
 
 const StyledTableContainer = styled(TableContainer)({
@@ -33,18 +41,36 @@ const StyledTableContainer = styled(TableContainer)({
   overflowX: 'auto',
   marginBottom: '40px',
   border: '1px solid white',
+  borderRadius: '8px',
   boxShadow: '0px 0px 20px 10px #447AC2ff',
+  cursor: 'grab',
   '@media (max-width: 768px)': {
     maxWidth: '80%', // For medium screens
+    cursor: 'grab',
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    whiteSpace: 'nowrap',
   },
   '@media (max-width: 480px)': {
     maxWidth: '100%', // For small screens
+    cursor: 'grab',
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    whiteSpace: 'nowrap',
+  },
+  '&:grabbing': {
+    cursor: 'grabbing',
   },
 });
 
 const StyledTable = styled(Table)({
   minWidth: 300,
   border: '2px solid white',
+  borderRadius: '8px',
+  '@media (max-width: 768px)': {
+    minWidth: 'unset',
+    whiteSpace: 'nowrap',
+  },
 });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -249,6 +275,24 @@ export default function MembersHome() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editEvent, setEditEvent] = useState(null);
 
+  const tableRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - tableRef.current.offsetLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const scrollLeft = e.pageX - startX;
+    tableRef.current.scrollLeft = scrollLeft;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   const handleEdit = (event) => {
     setEditEvent(event);
     setEditModalOpen(true);
@@ -299,7 +343,13 @@ export default function MembersHome() {
       <FormContainer>
         <TourForm formName="add" handleAdd={handleAdd} />
       </FormContainer>
-      <StyledTableContainer component={Paper}>
+      <StyledTableContainer
+        ref={tableRef}
+        component={Paper}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
         <StyledTable aria-label="customized table">
           <TableHead>
             <TableRow>

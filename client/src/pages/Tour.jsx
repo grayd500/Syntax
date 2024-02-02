@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React, { useRef, useState } from 'react';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -25,6 +25,9 @@ const GET_EVENTS = gql`
 
 const GeneralContainer = styled('div')({
   marginTop: '7rem',
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
 });
 
 const StyledTableContainer = styled(TableContainer)({
@@ -33,18 +36,36 @@ const StyledTableContainer = styled(TableContainer)({
   overflowX: 'auto',
   marginBottom: '40px',
   border: '1px solid white',
+  borderRadius: '8px',
   boxShadow: '0px 0px 20px 10px #447AC2ff',
+  cursor: 'grab',
   '@media (max-width: 768px)': {
     maxWidth: '80%', // For medium screens
+    cursor: 'grab',
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    whiteSpace: 'nowrap',
   },
   '@media (max-width: 480px)': {
     maxWidth: '100%', // For small screens
+    cursor: 'grab',
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    whiteSpace: 'nowrap',
   },
+  // '&:grabbing': {
+  //   cursor: 'grabbing',
+  // },
 });
 
 const StyledTable = styled(Table)({
   minWidth: 300,
   border: '2px solid white',
+  borderRadius: '8px',
+  '@media (max-width: 768px)': {
+    minWidth: 'unset',
+    whiteSpace: 'nowrap',
+  },
 });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -76,9 +97,33 @@ export default function Tour() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  const tableRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - tableRef.current.offsetLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const scrollLeft = e.pageX - startX;
+    tableRef.current.scrollLeft = scrollLeft;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   return (
     <GeneralContainer>
-      <StyledTableContainer component={Paper}>
+      <StyledTableContainer
+        ref={tableRef}
+        component={Paper}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}>
         <StyledTable aria-label="customized table">
           <TableHead>
             <TableRow>
