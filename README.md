@@ -95,5 +95,5 @@ If you have any questions, feel free to contact us:
   - [GitHub](https://github.com/Daleray1231)
 
 - **Derek Modugno**
-  - [LinkedIn]((https://www.linkedin.com/in/derek-modugno-9927b72b1/))
+  - [LinkedIn](https://www.linkedin.com/in/derek-modugno-9927b72b1/)
   - [GitHub](https://github.com/derekm129)
