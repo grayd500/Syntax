@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: black;
+}
+
+.merchPic {
+  height: 477px;
+  width: 477px;
+}
+
+.merchCard:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* CSS HEX 
+Band Photo
+--mexican-pink: #DA1279ff;
+--penn-blue: #151D52ff;
+--melon: #F2A7A8ff;
+--russian-violet: #241742ff;
+--razzmatazz: #E53179ff;
+--tufts-blue: #398FD4ff;
+--pumpkin: #FA6A0Aff;
+*/
+
+/* CSS HEX 
+Album Cover
+--grape: #7215A9ff;
+--celestial-blue: #2195C8ff;
+--bistre: #28170Dff;
+--van-dyke: #42332Aff;
+--deep-sky-blue: #1FBEFDff;
+*/

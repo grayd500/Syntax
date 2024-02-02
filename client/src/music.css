@@ -1,0 +1,91 @@
+.square-carousel {
+  width: 50%;
+  /* padding-bottom: 50%; */
+  position: relative;
+  margin: 0 auto;
+  min-height: 300px;
+  min-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 10px #8a2be2;
+  border: 3px solid white;
+}
+
+.square-slide {
+  position: relative;
+}
+
+.square-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.square-slide:hover .overlay {
+  opacity: 1;
+}
+
+.album-details {
+  text-align: center;
+}
+
+.album-details h3 {
+  margin-bottom: 10px;
+}
+
+.album-details p {
+  margin-bottom: 5px;
+}
+
+.album-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.album-details li {
+  margin-bottom: 5px;
+}
+
+/* Center the image between slide buttons vertically */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-50%);
+  z-index: 1;
+  color: #e53179ff;
+}
+
+.slick-prev {
+  left: -50px;
+  /* Adjust this value to position the button to the left of the image */
+  top: 50%;
+}
+
+.slick-next {
+  right: -50px;
+  /* Adjust this value to position the button to the right of the image */
+  top: 50%;
+}
