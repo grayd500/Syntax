@@ -1,7 +1,6 @@
 # Syntax
 ![Screenshot](./server/images/homepage.png)
 
-  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
    This app is a website for a fictional 80’s synth band called Syntax. On this website you can see the band’s discography, view merch, look at tour dates, and contact the band through a contact page. Our goal was to make a template we could use ourselves and for potential clients in the future.
